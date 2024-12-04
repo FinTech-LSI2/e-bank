@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+
+/* Style général pour la navbar */
+body {
+  background-color: #f0f0f0; /* Light gray background */
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+.navbar {
+  background-color: #1b365c; /* Couleur de fond bleu foncé */
+  padding: 1rem 2rem; /* Espacement intérieur */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  margin-bottom: 2rem;
+
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+}
+
+/* Menu Hamburger (Mobile) */
+.menu-toggle {
+  display: none; /* Cacher sur desktop */
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+}
+
+/* Logo */
+.logo-img {
+  height: 80px;
+  width: 100%;
+  z-index:100;
+}
+
+/* Boutons */
+.buttons {
+  display: flex;
+  gap: 1rem; /* Espacement entre les boutons */
+}
+
+/* Style de base des boutons */
+.btn {
+  padding: 12px 15px;
+  /* Coins arrondis */
+  font-size: 1rem;
+  font-family: 'Lato', sans-serif;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-weight: 900;
+}
+
+/* Bouton "Become a Client" */
+.client-btn {
+  background-color: #4f70a5;
+}
+
+.client-btn:hover {
+  background-color: #134679; /* Bleu plus foncé au survol */
+}
+
+/* Bouton "Subscribe" */
+.subscribe-btn {
+  background-color: #4f70a5;
+}
+
+.subscribe-btn:hover {
+  background-color: #134679;  /* Violet plus foncé au survol */
+}
+
+/* Bouton "Login" */
+.login-btn {
+  background-color: #4f70a5; /* Gris pour le bouton "Login" */
+}
+
+.login-btn:hover {
+  background-color: #4b5563; /* Gris plus foncé au survol */
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #dde6f4; /* Couleur d'arrière-plan */
+  border: 1px solid #ddd; /* Bordure de la carte */
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  width: 900px;
+  margin: auto; /* Centrer la carte */
+}
+
+.card-content {
+  display: flex;
+  width: 100%;
+  gap: 2rem;
+}
+
+.text-section {
+  flex: 1; /* Occupe la moitié de la carte */
+}
+
+.text-section h1 {
+  color: #131e4d; /* Couleur personnalisée */
+  font-size: 1.9rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.text-section h2 {
+  color: #444;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.text-section p {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+
+
+.features-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.feature-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feature-icon {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.feature-item span {
+  font-size: 1rem;
+  color: #333333;
+  font-weight: bold;
+}
+
+.image-section {
+  flex: 1; /* Occupe l'autre moitié de la carte */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-section img {
+  max-width: 90%;
+  height: 95%;
+  border-radius: 8px; /* Coins arrondis pour l'image */
+}
+
+
+
+
+
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  animation: slide 9s infinite;
+}
+
+.carousel-item {
+  min-width: 100%;
+  flex: 0 0 auto;
+  transition: transform 1s ease-in-out;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  33% {
+    transform: translateX(-100%);
+  }
+  66% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+/* Styles mobiles : Menu hamburger */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .buttons {
+    display: none; /* Masquer les boutons sur mobile */
+  }
+}
+
+
+
+
