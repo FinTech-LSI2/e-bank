@@ -3,7 +3,7 @@ eureka:
     hostname: localhost
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone:  http://eureka-server:8761/eureka
     register-with-eureka: true
     fetch-registry: true
 spring:
@@ -11,5 +11,4 @@ spring:
     name: credit-simulator-service
   config:
     import: optional:configserver:http://localhost:8888
-server:
-  port: 8090
+

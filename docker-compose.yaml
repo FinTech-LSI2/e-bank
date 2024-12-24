@@ -1,0 +1,112 @@
+version: '3.9'
+
+services:
+  # Client Database
+  client-db:
+    build:
+      context: ./Docker-dbs/client-db
+    container_name: client-db
+    networks:
+      - my-network
+    ports:
+      - "3307:3306"
+    volumes:
+      - client-db-data:/var/lib/mysql
+
+  # Transaction Database
+  transactions-db:
+    build:
+      context: ./Docker-dbs/transaction-db
+    container_name: transaction-db
+    networks:
+      - my-network
+    ports:
+      - "3308:3306"
+    volumes:
+      - transaction-db-data:/var/lib/mysql
+
+  # Client Service
+  client-service:
+    build:
+      context: ./client-service/
+    container_name: client-service
+    networks:
+      - my-network
+    ports:
+      - "9000:8080"
+    depends_on:
+      - eureka-server
+      - gateway
+      - client-db
+    environment:
+      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+
+  # Transaction Service
+  transactions-service:
+    build:
+      context: ./transaction-service/
+    container_name: transaction-service
+    networks:
+      - my-network
+    ports:
+      - "9001:8080"
+    depends_on:
+      - eureka-server
+      - gateway
+      - transactions-db
+    environment:
+      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+
+
+  # Gateway Service
+  gateway:
+    build:
+      context: ./gateway/
+    container_name: gateway
+    networks:
+      - my-network
+    ports:
+      - "8222:8222"
+    depends_on:
+       - eureka-server
+
+
+
+  # Eureka Server
+  eureka-server:
+    
+    build:
+      context: ./discovery/
+    container_name: discovery
+    networks:
+      - my-network
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=default
+
+
+
+  # Finance Service
+  finance-service:
+    build:
+      context: ./finance-service/
+    container_name: finance-service
+    networks:
+      - my-network
+    ports:
+      - "9002:8080"
+    depends_on:
+      - eureka-server
+      - gateway
+    environment:
+      - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+
+networks:
+  my-network:
+    driver: bridge
+
+# Volumes for persistent DB storage
+volumes:
+  client-db-data:
+  transaction-db-data:

@@ -5,9 +5,9 @@ eureka:
     register-with-eureka: false # Désactive l'enregistrement auprès de lui-même
     fetch-registry: false       # Empêche de récupérer la liste des instances (utile pour Eureka Server)
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone:  http://eureka-server:8761/eureka
 server:
   port: 8761
 spring:
   config:
-    import: optional:configserver:http://localhost:8888
+    import: optional:configserver:http://config-server:8888
