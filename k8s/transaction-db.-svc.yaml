@@ -7,8 +7,8 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - name: "db2-service"
-    port: 3305
+  - name: "transactions-db"
+    port: 3306
     targetPort: 3306
   selector:
     app: transactions-db
