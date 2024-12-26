@@ -10,3 +10,5 @@ and make sure ur using the openjdk 21
 step 2 : k8s manifest files 
 
 
+RUN 
+kubectl apply -f ./k8s
