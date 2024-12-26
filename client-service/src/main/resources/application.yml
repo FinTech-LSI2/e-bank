@@ -11,8 +11,8 @@ spring:
     import: optional:configserver:http://config-server:8888
   datasource:
     url: jdbc:mysql://client-db:3306/client-service
-    username: root
-    password: root
+    username: client-user
+    password: client-pass
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
