@@ -32,7 +32,7 @@ kubectl apply -f svc.yaml
 ```
 ### use the helm charts
  ```bash
- helm install ebank-helm ./ my-helm-app
+ helm install ebank-helm ./my-helm-app
 
  
 ```

@@ -15,4 +15,13 @@ nodes:
   - containerPort: 31002
     hostPort: 31002
     listenAddress: "0.0.0.0"  # Optional, defaults to "0.0.0.0"
-    protocol: tcp  
+    protocol: tcp 
+  - containerPort: 31003
+    hostPort: 31003
+    listenAddress: "0.0.0.0"  # Optional, defaults to "0.0.0.0"
+    protocol: tcp   
+  - containerPort: 31004
+    hostPort: 31004
+    listenAddress: "0.0.0.0"  # Optional, defaults to "0.0.0.0"
+    protocol: tcp   
+
