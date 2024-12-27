@@ -1,4 +1,4 @@
-# Default values for hello-world.
+# Default values for my-helm-app.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -52,10 +52,9 @@ securityContext: {}
 # This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
 service:
   # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
-  type: NodePort
+  type: ClusterIP
   # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
   port: 80
-  
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
@@ -122,3 +121,18 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+
+client:
+  name: client
+  image: ayman909/client-service:v2
+
+transactions:
+  name: transactions
+  image: ayman909/transactions-service:v2
+
+finance:
+  name: finance
+  image: ayman909/finance-service:v2
+
+
