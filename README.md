@@ -27,3 +27,16 @@ kubectl apply -f svc.yaml
 ### username : admin
  
 ### password : kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | % {[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_))}
+
+### use the helm charts
+ ```bash
+ helm install ebank-helm ./ my-helm-app
+
+ 
+```
+
+### upgreade the app
+ ```bash
+helm upgrade my-app ./my-helm-app \
+        --set client.image.tag=${BUILD_NUMBER}
+```
