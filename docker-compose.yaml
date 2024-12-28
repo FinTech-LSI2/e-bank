@@ -66,7 +66,7 @@ services:
     networks:
       - my-network
     ports:
-      - "8222:8222"
+      - "8223:8222"
     depends_on:
        - eureka-server
 
@@ -101,6 +101,29 @@ services:
       - gateway
     environment:
       - EUREKA_SERVER_URL=http://eureka-server:8761/eureka
+    
+ 
+  frontend:
+    build:
+      context: ./frontend/
+    container_name: frontend
+    networks:
+      - my-network
+    ports:
+      - "80:80"
+    depends_on:
+      
+      - gateway
+  
+  model:
+    build:
+      context: ./ml-model/
+    container_name: model
+    networks:
+      - my-network
+    ports:
+      - "5000:5000"
+     
 
 networks:
   my-network:
