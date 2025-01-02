@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banque Populaire</title>
+</head>
+<body>
+    <header>
+        <img src="assets/img/ebankk.png" alt="Banque Populaire">
+        <nav>
+            
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="text">
+            <h1>En ligne ou en agence, nous vous accompagnons !</h1>
+            <p>Procédez maintenant à l'ouverture de votre compte 100% en ligne à travers l'application PocketBank.</p>
+            <button>Ouverture 100% en ligne</button>
+        </div>
+        <img src="assets/img/téléchargement.jpg" alt="" data-aos="fade-in">
+    </section>
+    <section class="form-section">
+    <h2>Inscription Client</h2>
+    <form>
+        <div class="form-group">
+            <label for="lastname">Nom :</label>
+            <input type="text" id="lastname" name="lastname" placeholder="Entrez votre nom" required>
+        </div>
+        <div class="form-group">
+            <label for="firstname">Prénom :</label>
+            <input type="text" id="firstname" name="firstname" placeholder="Entrez votre prénom" required>
+        </div>
+        <div class="form-group">
+            <label for="CIN">CIN :</label>
+            <input type="text" id="CIN" name="CIN" placeholder="Entrez votre CIN" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+        </div>
+        <div class="form-group">
+            <label for="numeroTelephone">Numéro de téléphone :</label>
+            <input type="text" id="numeroTelephone" name="numeroTelephone" placeholder="Entrez votre numéro de téléphone" required>
+        </div>
+        <div class="form-group">
+            <label for="dateNaissance">Date de naissance :</label>
+            <input type="date" id="dateNaissance" name="dateNaissance" required>
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse :</label>
+            <input type="text" id="adresse" name="adresse" placeholder="Entrez votre adresse" required>
+        </div>
+        <div class="form-group">
+            <label for="adresse">Mot de passe :</label>
+            <input type="text" id="password" name="password" placeholder="Entrez votre password" required>
+        </div>
+        <div class="form-group">
+            <label for="natureClient">Nature du client :</label>
+            <select id="natureClient" name="natureClient" required>
+                <option value="" disabled selected>Choisir...</option>
+                <option value="Particulier">Particulier</option>
+                <option value="Professionnel">Professionnel</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="S'inscrire">
+        </div>
+    </form>
+</section>
+
+</body>
+</html>
+
+<app-faq></app-faq>
+<app-contact></app-contact>
+<app-footer></app-footer>

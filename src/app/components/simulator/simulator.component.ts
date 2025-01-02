@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { FooterComponent } from "../footer/footer.component";
+import { NavbarComponent } from "../navbar/navbar.component";
+import { FaqComponent } from "../faq/faq.component";
+import { ContactComponent } from "../contact/contact.component";
 @Component({
   selector: 'app-simulator',
   templateUrl: './simulator.component.html',
   styleUrls: ['./simulator.component.css'],
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, FooterComponent, NavbarComponent, FaqComponent, ContactComponent],
 })
 export class SimulatorComponent implements OnInit {
   montant: number = 500000; // Loan amount

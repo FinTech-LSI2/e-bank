@@ -5,13 +5,18 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { SearchBarComponent } from "../search-bar/search-bar.component";
 import { CommonModule } from '@angular/common';
 import { SimulatorComponent } from "../simulator/simulator.component";
+import { FooterComponent } from "../footer/footer.component";
+import { ContactComponent } from "../contact/contact.component";
+import { FaqComponent } from "../faq/faq.component";
+import { CreditQuestionComponent } from "../credit-question/credit-question.component";
+
 
 
 
 @Component({
   selector: 'app-credit-request',
   standalone: true,
-  imports: [FormsModule, NavbarComponent, CommonModule, SimulatorComponent],
+  imports: [FormsModule, NavbarComponent, CommonModule, SimulatorComponent, FooterComponent, ContactComponent, FaqComponent, CreditQuestionComponent],
   templateUrl: './credit-request.component.html',
   styleUrl: './credit-request.component.css'
 })
