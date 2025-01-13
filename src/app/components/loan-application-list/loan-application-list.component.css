@@ -1,0 +1,55 @@
+.loan-application-list {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fafbff;
+    border-radius: 8px;
+  }
+  
+  .loan-application-list h2 {
+    text-align: center;
+  }
+  
+  .loan-application-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .loan-application-list th, .loan-application-list td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  .loan-application-list th {
+    background-color: #1b365c;
+    color: white;
+  }
+  
+  .loan-application-list button {
+    padding: 5px 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .loan-application-list button:hover {
+    opacity: 0.8;
+  }
+  
+  .loan-application-list button:active {
+    transform: scale(0.98);
+  }
+  
+  .loan-application-list button:nth-child(1) {
+    background-color: #4CAF50; /* Green for Accept */
+    color: white;
+  }
+  
+  .loan-application-list button:nth-child(2) {
+    background-color: #f44336; /* Red for Reject */
+    color: white;
+  }
+  

@@ -1,0 +1,37 @@
+<app-sidebar></app-sidebar>
+
+<div class="loan-application-list">
+    <h2>Loan Applications</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>CIN</th>
+          <th>Age</th>
+          <th>Income</th>
+          <th>Loan Intent</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let loanApplication of loanApplications">
+          <td>{{ loanApplication.name }}</td>
+          <td>{{ loanApplication.cin }}</td>
+          <td>{{ loanApplication.personAge }}</td>
+          <td>{{ loanApplication.personIncome }}</td>
+          <td>{{ loanApplication.loanIntent }}</td>
+          <td>{{ loanApplication.status }}</td>
+          <td>
+            <button *ngIf="loanApplication.status === 'PENDING'" (click)="acceptLoanApplication(loanApplication.id)">
+              Accept
+            </button>
+            <button *ngIf="loanApplication.status === 'PENDING'" (click)="rejectLoanApplication(loanApplication.id)">
+              Reject
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
