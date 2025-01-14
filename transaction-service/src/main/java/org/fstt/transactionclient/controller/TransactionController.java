@@ -22,9 +22,5 @@ public class TransactionController {
         return transactionService.getTransactionsByRib(rib);
     }
 
-    @PostMapping("/clients")
-    public Transaction createTransaction(@RequestBody Transaction transaction) {
-        return transactionService.saveTransaction(transaction);
-    }
 
 }

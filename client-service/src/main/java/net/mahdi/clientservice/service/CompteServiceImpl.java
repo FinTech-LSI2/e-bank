@@ -4,12 +4,14 @@ package net.mahdi.clientservice.service;
 import net.mahdi.clientservice.DTOs.CompteDTO;
 import net.mahdi.clientservice.enums.StatusCompte;
 import net.mahdi.clientservice.enums.TypeCompte;
+import net.mahdi.clientservice.events.AccountEvent;
 import net.mahdi.clientservice.exception.CompteNotFoundException;
 import net.mahdi.clientservice.models.Compte;
 import net.mahdi.clientservice.models.CompteCourant;
 import net.mahdi.clientservice.models.CompteEpargne;
 import net.mahdi.clientservice.repository.CompteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -21,6 +23,10 @@ public class CompteServiceImpl implements CompteService {
 
     @Autowired
     private CompteRepository compteRepository;
+
+    public CompteServiceImpl(KafkaTemplate<String, AccountEvent> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
 
     @Override
     public void createAccount(CompteDTO compteDto) {
@@ -105,6 +111,13 @@ public class CompteServiceImpl implements CompteService {
         final String CLE_RIB = " 96";
         String numCompteStr = String.format("%016d", numCompte);
         return CODE_BANQUE + CODE_GUICHET + numCompteStr + CLE_RIB;
+    }
 
-}
+    private final KafkaTemplate<String, AccountEvent> kafkaTemplate;
+
+
+    public void publishAccountEvent(AccountEvent accountEvent) {
+        kafkaTemplate.send("accounts-topic", accountEvent);  // Envoie l'événement au topic Kafka
+        System.out.println("Account event published: " + accountEvent);
+    }
 }

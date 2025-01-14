@@ -14,10 +14,14 @@
         <option value="$PROJECT_DIR$/credit-simulator-service/pom.xml" />
         <option value="$PROJECT_DIR$/finance-service/pom.xml" />
         <option value="$PROJECT_DIR$/transaction-client/pom.xml" />
+        <option value="$PROJECT_DIR$/employe/pom.xml" />
+        <option value="$PROJECT_DIR$/demandes-credit-service/pom.xml" />
+        <option value="$PROJECT_DIR$/Authentication_service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/testing/pom.xml" />
         <option value="$PROJECT_DIR$/transaction-client/pom.xml" />
       </set>
     </option>
