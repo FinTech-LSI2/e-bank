@@ -1,0 +1,25 @@
+$env:PATH += ";C:\Users\ayman\ebank\e-bank\istio\istio-1.24.2\bin"
+istioctl version
+istioctl install --set profile=demo -y
+kubectl label namespace default istio-injection=enabled
+
+kubectl apply -f istio\istio-1.24.2\samples\addons -n istio-system
+
+
+kubectl apply -f istio\istio-1.24.2\samples\bookinfo\platform\kube\bookinfo.yaml
+
+kubectl apply -f  istio\istio-1.24.2\samples\bookinfo\networking\bookinfo-gateway.yaml
+
+
+curl 10.96.80.132/productpage
+
+
+curl 10.96.80.132/api/v1/products
+while true; do
+    echo "Running curl for productpage:"
+    curl 10.96.116.61/
+    curl 10.96.116.61/api/client/clients
+    curl 10.96.116.61/api/finance/devise
+     curl 10.96.116.61/api/transactions/clients/1
+    sleep 2
+done 
