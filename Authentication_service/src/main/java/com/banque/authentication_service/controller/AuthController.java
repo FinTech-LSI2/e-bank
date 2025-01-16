@@ -9,6 +9,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +40,7 @@ public class AuthController {
     public ResponseEntity<TokenResponse> loginEmploye(@RequestBody @Valid LoginRequest request) {
         try {
             // Appeler le microservice pour récupérer les informations de l'employé
-            String url = "http://localhost:9092/api/client/clients" + request.getUsername();
+            String url = "http://localhost: /api/client/clients" + request.getUsername();
             AuthUser user = fetchUser(url);
 
             // Vérifier le mot de passe

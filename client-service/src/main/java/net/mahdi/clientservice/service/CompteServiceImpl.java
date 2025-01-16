@@ -4,7 +4,7 @@ package net.mahdi.clientservice.service;
 import net.mahdi.clientservice.DTOs.CompteDTO;
 import net.mahdi.clientservice.enums.StatusCompte;
 import net.mahdi.clientservice.enums.TypeCompte;
-import net.mahdi.clientservice.events.AccountEvent;
+//import net.mahdi.clientservice.events.AccountEvent;
 import net.mahdi.clientservice.exception.CompteNotFoundException;
 import net.mahdi.clientservice.models.Compte;
 import net.mahdi.clientservice.models.CompteCourant;
@@ -24,9 +24,9 @@ public class CompteServiceImpl implements CompteService {
     @Autowired
     private CompteRepository compteRepository;
 
-    public CompteServiceImpl(KafkaTemplate<String, AccountEvent> kafkaTemplate) {
-        this.kafkaTemplate = kafkaTemplate;
-    }
+//    public CompteServiceImpl(KafkaTemplate<String, AccountEvent> kafkaTemplate) {
+//        this.kafkaTemplate = kafkaTemplate;
+//    }
 
     @Override
     public void createAccount(CompteDTO compteDto) {
@@ -97,8 +97,7 @@ public class CompteServiceImpl implements CompteService {
         }
         throw new CompteNotFoundException("Compte non trouvé pour suspension avec le RIB : " + rib);
     }
-    // generation des factures aleatoires
-    //{ code , montant , num_contrat , nature ,date , status   }
+
     @Override
     public List<Compte> findAllComptes() {
         return compteRepository.findAll();
@@ -113,11 +112,13 @@ public class CompteServiceImpl implements CompteService {
         return CODE_BANQUE + CODE_GUICHET + numCompteStr + CLE_RIB;
     }
 
-    private final KafkaTemplate<String, AccountEvent> kafkaTemplate;
+//    private final KafkaTemplate<String, AccountEvent> kafkaTemplate;
 
 
-    public void publishAccountEvent(AccountEvent accountEvent) {
-        kafkaTemplate.send("accounts-topic", accountEvent);  // Envoie l'événement au topic Kafka
-        System.out.println("Account event published: " + accountEvent);
-    }
+//    public void publishAccountEvent(AccountEvent accountEvent) {
+//        kafkaTemplate.send("accounts-topic", accountEvent);  // Envoie l'événement au topic Kafka
+//        System.out.println("Account event published: " + accountEvent);
+//    }
+
+
 }

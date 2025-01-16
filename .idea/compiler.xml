@@ -11,19 +11,12 @@
         <module name="credit-simulator-service" />
         <module name="discovery" />
         <module name="finance-service" />
+        <module name="email-service" />
         <module name="Authentication_service" />
         <module name="transaction-service" />
+        <module name="employees-service" />
         <module name="gateway" />
         <module name="client-service" />
-      </profile>
-      <profile name="Annotation profile for employe" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-        </processorPath>
-        <module name="employe" />
       </profile>
       <profile name="Annotation profile for demandes-credit-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -37,6 +30,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="employe" target="17" />
       <module name="testing" target="21" />
       <module name="trasaction-service" target="21" />
     </bytecodeTargetLevel>
@@ -49,7 +43,9 @@
       <module name="credit-simulator-service" options="-parameters" />
       <module name="demandes-credit-service" options="-parameters" />
       <module name="discovery" options="-parameters" />
+      <module name="email-service" options="-parameters" />
       <module name="employe" options="-parameters" />
+      <module name="employees-service" options="-parameters" />
       <module name="finance-service" options="-parameters" />
       <module name="gateway" options="-parameters" />
       <module name="transaction-service" options="-parameters" />

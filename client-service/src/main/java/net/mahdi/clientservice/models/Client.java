@@ -32,7 +32,6 @@ public class Client {
     @Column(nullable = false, unique = true, length = 20)
     private String numeroTelephone;
 
-
     @Column(nullable = false)
     private LocalDate dateNaissance;
 
@@ -45,5 +44,7 @@ public class Client {
     @Column(nullable = false)
     private LocalDate inscriptionDate;
 
+    @Column(nullable = false)
+    private String password;
 
 }
