@@ -24,13 +24,13 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
         </processorPath>
         <module name="demandes-credit-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="employe" target="17" />
+      <module name="identoty-service" target="17" />
       <module name="testing" target="21" />
       <module name="trasaction-service" target="21" />
     </bytecodeTargetLevel>
@@ -43,7 +43,7 @@
       <module name="credit-simulator-service" options="-parameters" />
       <module name="demandes-credit-service" options="-parameters" />
       <module name="discovery" options="-parameters" />
-      <module name="email-service" options="-parameters" />
+      <module name="email-service" options="" />
       <module name="employe" options="-parameters" />
       <module name="employees-service" options="-parameters" />
       <module name="finance-service" options="-parameters" />
