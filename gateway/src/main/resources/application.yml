@@ -41,3 +41,15 @@ spring:
             - Path=/api/loan-applications/**
           filters:
             - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+        - id: flask-microservice
+          uri: http://127.0.0.1:5000
+          predicates:
+            - Path=/api/prediction/**
+          filters:
+            - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+        - id: email-service
+          uri: http://localhost:9099
+          predicates:
+            - Path=/api/notifications/**
+          filters:
+            - DedupeResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE

@@ -29,6 +29,7 @@ public class LoanApplication {
     private String cbPersonDefaultOnFile;
 
     private int cbPersonCredHistLength;
+    private  String email;
 
     @Enumerated(EnumType.STRING)
     private LoanApplicationStatus status = LoanApplicationStatus.PENDING;
@@ -142,5 +143,12 @@ public class LoanApplication {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setEmail(String email){
+        this.email = email;
+    }
+    public  String getEmail(){
+        return email;
     }
 }

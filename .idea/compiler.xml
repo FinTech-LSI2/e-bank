@@ -43,7 +43,7 @@
       <module name="credit-simulator-service" options="-parameters" />
       <module name="demandes-credit-service" options="-parameters" />
       <module name="discovery" options="-parameters" />
-      <module name="email-service" options="" />
+      <module name="email-service" options="-parameters" />
       <module name="employe" options="-parameters" />
       <module name="employees-service" options="-parameters" />
       <module name="finance-service" options="-parameters" />

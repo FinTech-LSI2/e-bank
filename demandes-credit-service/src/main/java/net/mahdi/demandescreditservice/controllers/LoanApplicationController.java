@@ -1,4 +1,5 @@
 package net.mahdi.demandescreditservice.controllers;
+import io.swagger.annotations.ApiOperation;
 
 
 import net.mahdi.demandescreditservice.DTOs.LoanApplicationDTO;
@@ -11,10 +12,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/loan-applications")
-@CrossOrigin(origins = "http://localhost:4200")
 public class LoanApplicationController {
 
     private final LoanApplicationService loanApplicationService;
@@ -26,6 +27,7 @@ public class LoanApplicationController {
 
     // Endpoint pour créer une nouvelle demande de prêt
     @PostMapping
+    @ApiOperation("Create a new loan application")
     public ResponseEntity<LoanApplication> createLoanApplication(@RequestBody LoanApplicationDTO loanApplicationDTO) {
         LoanApplication createdLoanApplication = loanApplicationService.createLoanApplication(loanApplicationDTO);
         return new ResponseEntity<>(createdLoanApplication, HttpStatus.CREATED);
@@ -36,6 +38,10 @@ public class LoanApplicationController {
     public ResponseEntity<LoanApplication> getLoanApplication(@PathVariable Long id) {
         LoanApplication loanApplication = loanApplicationService.getLoanApplication(id);
         return new ResponseEntity<>(loanApplication, HttpStatus.OK);
+    }
+    @PostMapping("/{id}/simulate")
+    public ResponseEntity<Map<String, String>> simulateLoanApplication(@PathVariable Long id) {
+        return loanApplicationService.simulateLoanApplication(id);
     }
 
     @PutMapping("/{id}/reject")

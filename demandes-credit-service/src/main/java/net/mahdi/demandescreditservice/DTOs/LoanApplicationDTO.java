@@ -17,6 +17,8 @@ public class LoanApplicationDTO {
     private double loanPercentIncome;
     private String cbPersonDefaultOnFile;
     private int cbPersonCredHistLength;
+    private String email;
+
 
     public String getCin() {
         return cin;
@@ -106,4 +108,11 @@ public class LoanApplicationDTO {
     public void setCbPersonCredHistLength(int cbPersonCredHistLength) {
         this.cbPersonCredHistLength = cbPersonCredHistLength;
     }
+     public  void setEmail(String email){
+        this.email = email;
+
+     }
+     public String getEmail(){
+        return email;
+     }
 }
