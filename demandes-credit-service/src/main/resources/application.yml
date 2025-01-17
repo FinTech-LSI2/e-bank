@@ -35,4 +35,4 @@ spring:
     init:
       mode: always
 server:
-  port: 8099
+  port: 9898
