@@ -19,6 +19,7 @@
         <option value="$PROJECT_DIR$/Authentication_service/pom.xml" />
         <option value="$PROJECT_DIR$/employees-service/pom.xml" />
         <option value="$PROJECT_DIR$/email-service/pom.xml" />
+        <option value="$PROJECT_DIR$/identoty-service/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
