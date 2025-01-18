@@ -1,0 +1,14 @@
+<form (ngSubmit)="saveClient()" class="creative-form">
+    <label>Last Name: <input type="text" [(ngModel)]="client.lastname" name="lastname" required /></label>
+    <label>First Name: <input type="text" [(ngModel)]="client.firstname" name="firstname" required /></label>
+    <label>CIN: <input type="text" [(ngModel)]="client.cin" name="cin" required /></label>
+    <label>Email: <input type="email" [(ngModel)]="client.email" name="email" required /></label>
+    <label>Phone: <input type="text" [(ngModel)]="client.numeroTelephone" name="numeroTelephone" required /></label>
+    <label>Date of Birth: <input type="date" [(ngModel)]="client.dateNaissance" name="dateNaissance" required /></label>
+    <label>Address: <input type="text" [(ngModel)]="client.adresse" name="adresse" required /></label>
+    <label>Nature de Client: <input type="text" [(ngModel)]="client.natureClient" name="natureClient" required /></label>
+    <label>Registration Date: <input type="date" [(ngModel)]="client.inscriptionDate" name="inscriptionDate" required /></label>
+    <label>Password: <input type="password" [(ngModel)]="client.password" name="password" required /></label>
+    <button type="submit">Save</button>
+  </form>
+  
