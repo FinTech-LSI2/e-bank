@@ -1,0 +1,71 @@
+<div class="container">
+    <h2>Créer un Compte</h2>
+    <form [formGroup]="compteForm" (ngSubmit)="onSubmit()">
+      <!-- Balance -->
+      <div class="mb-3">
+        <label for="balance" class="form-label">Balance</label>
+        <input
+          type="number"
+          id="balance"
+          class="form-control"
+          formControlName="balance"
+          placeholder="Entrez le montant initial"
+        />
+        <div *ngIf="compteForm.get('balance')?.invalid && compteForm.get('balance')?.touched" class="text-danger">
+          La balance est obligatoire et doit être un nombre positif.
+        </div>
+      </div>
+  
+      <!-- Status -->
+      <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select id="status" class="form-select" formControlName="status">
+          <option value="ACTIVATED">Activé</option>
+          <option value="SUSPENDED">Suspendu</option>
+        </select>
+      </div>
+  
+      <!-- Type de Compte -->
+      <div class="mb-3">
+        <label for="typeCompte" class="form-label">Type de Compte</label>
+        <select id="typeCompte" class="form-select" formControlName="typeCompte">
+          <option value="CURRANT">Courant</option>
+          <option value="SAVING">Épargne</option>
+        </select>
+      </div>
+  
+      <!-- ID Client -->
+      <div class="mb-3">
+        <label for="idClient" class="form-label">ID Client</label>
+        <input
+          type="number"
+          id="idClient"
+          class="form-control"
+          formControlName="idClient"
+          placeholder="Entrez l'identifiant du client"
+        />
+        <div *ngIf="compteForm.get('idClient')?.invalid && compteForm.get('idClient')?.touched" class="text-danger">
+          L'ID Client est obligatoire et doit être un nombre positif.
+        </div>
+      </div>
+  
+      <!-- Taux d'intérêt -->
+      <div class="mb-3">
+        <label for="interetRate" class="form-label">Taux d'intérêt (%)</label>
+        <input
+          type="number"
+          id="interetRate"
+          class="form-control"
+          formControlName="interetRate"
+          placeholder="Entrez le taux d'intérêt pour un compte épargne"
+        />
+        <div *ngIf="compteForm.get('interetRate')?.invalid && compteForm.get('interetRate')?.touched" class="text-danger">
+          Le taux d'intérêt doit être un nombre positif ou nul.
+        </div>
+      </div>
+  
+      <!-- Bouton de soumission -->
+      <button type="submit" class="btn btn-primary">Créer</button>
+    </form>
+  </div>
+  
