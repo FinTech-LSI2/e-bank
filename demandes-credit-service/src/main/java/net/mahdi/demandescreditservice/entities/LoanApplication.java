@@ -24,7 +24,7 @@ public class LoanApplication {
 
     private double loanAmnt;
 
-    private double loanPercentIncome;
+
 
     private String cbPersonDefaultOnFile;
 
@@ -105,13 +105,7 @@ public class LoanApplication {
         this.loanAmnt = loanAmnt;
     }
 
-    public double getLoanPercentIncome() {
-        return loanPercentIncome;
-    }
 
-    public void setLoanPercentIncome(double loanPercentIncome) {
-        this.loanPercentIncome = loanPercentIncome;
-    }
 
     public String getCbPersonDefaultOnFile() {
         return cbPersonDefaultOnFile;

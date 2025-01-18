@@ -4,6 +4,7 @@ public class CreditResponse {
     private String email;
     private String creditResponse; // Accepted or Refused
     private Long idCreditDemand;
+    private String name;
 
     public String getEmail() {
         return email;
@@ -28,4 +29,11 @@ public class CreditResponse {
     public void setIdCreditDemand(Long idCreditDemand) {
         this.idCreditDemand = idCreditDemand;
     }
+    public  void setName(String name){
+         this.name= name;
+    }
+    public  String getName(){
+        return name;
+    }
+
 }

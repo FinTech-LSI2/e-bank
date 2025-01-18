@@ -51,7 +51,7 @@ public class LoanApplicationService {
         loanApplication.setPersonEmpLength(loanApplicationDTO.getPersonEmpLength());
         loanApplication.setLoanIntent(loanApplicationDTO.getLoanIntent());
         loanApplication.setLoanAmnt(loanApplicationDTO.getLoanAmnt());
-        loanApplication.setLoanPercentIncome(loanApplicationDTO.getLoanPercentIncome());
+
         loanApplication.setCbPersonDefaultOnFile(loanApplicationDTO.getCbPersonDefaultOnFile());
         loanApplication.setCbPersonCredHistLength(loanApplicationDTO.getCbPersonCredHistLength());
         loanApplication.setEmail(loanApplicationDTO.getEmail());
