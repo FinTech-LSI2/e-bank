@@ -7,7 +7,7 @@ import { LoanApplication } from '../models/loan-application';
   providedIn: 'root',
 })
 export class LoanApplicationService {
-  private apiUrl = 'http://localhost:9898/api/loan-applications';
+  private apiUrl = 'http://localhost:8222/api/loan-applications';
 
   constructor(private http: HttpClient) { }
 
@@ -27,5 +27,8 @@ export class LoanApplicationService {
   rejectLoanApplication(id: number): Observable<LoanApplication> {
     return this.http.put<LoanApplication>(`${this.apiUrl}/${id}/reject`, {});
   }
-  
+  simulateLoanApplication(id: number): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/${id}/simulate`, {});
+  }
+
 }

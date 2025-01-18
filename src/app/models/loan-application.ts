@@ -8,9 +8,8 @@ export interface LoanApplication {
     personEmpLength: number;
     loanIntent: string;  // Enum value as a string
     loanAmnt: number;
-    loanPercentIncome: number;
     cbPersonDefaultOnFile: string;
     cbPersonCredHistLength: number;
     status?: string;  // Enum value as a string (e.g., 'PENDING')
+    email:string;
   }
-  

@@ -19,7 +19,7 @@ import { LoanApplication } from '../../models/loan-application';
   providers: [LoanApplicationService],
   templateUrl: './loan-application.component.html',
   styleUrls: ['./loan-application.component.css'],
-  
+
 
 })
 export class LoanApplicationComponent {
@@ -32,10 +32,10 @@ export class LoanApplicationComponent {
     personEmpLength: 0,
     loanIntent: '',
     loanAmnt: 0,
-    loanPercentIncome: 0,
     cbPersonDefaultOnFile: '',
     cbPersonCredHistLength: 0,
-    id: 0
+    id: 0,
+    email:''
   };
 
   constructor(private loanApplicationService: LoanApplicationService) { }

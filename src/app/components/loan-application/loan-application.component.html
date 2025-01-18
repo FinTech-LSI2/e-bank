@@ -3,7 +3,7 @@
 <div class="container">
   <h1>Loan Application Form</h1>
   <p class="subtitle">Please fill out all fields</p>
-  
+
   <form (ngSubmit)="submitForm()">
       <div class="form-grid">
           <div class="form-group">
@@ -15,6 +15,10 @@
               <label for="cin">CIN:</label>
               <input input type="text" id="cin" [(ngModel)]="loanApplication.cin" name="cin" required >
           </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input input type="text" id="email" [(ngModel)]="loanApplication.email" name="email" required >
+        </div>
 
           <div class="form-group">
               <label for="personAge">Age:</label>
@@ -58,10 +62,7 @@
               <input type="number" id="loanAmnt" [(ngModel)]="loanApplication.loanAmnt" name="loanAmnt" required >
           </div>
 
-          <div class="form-group">
-              <label for="loanPercentIncome">Loan as Percent of Income:</label>
-              <input type="number" id="loanPercentIncome" [(ngModel)]="loanApplication.loanPercentIncome" name="loanPercentIncome" required >
-          </div>
+          
 
           <div class="form-group">
               <label for="cbPersonDefaultOnFile">Default on File:</label>
@@ -79,7 +80,7 @@
 
     <button type="submit" class="submit-btn">SOUMETTRE LA DEMANDE</button>
   </form>
-</div> 
+</div>
 
 <app-credit-question></app-credit-question>
 <app-footer></app-footer>
