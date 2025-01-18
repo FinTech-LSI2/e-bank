@@ -6,6 +6,8 @@ import { RouterModule } from '@angular/router';
 import { CreditRequestComponent } from './components/credit-request/credit-request.component'; // Correct import
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { FormsModule } from '@angular/forms';
       // Declare components here
     // Declare your HomeComponent here
   ],
-  imports: [AppComponent,BrowserModule, HomeComponent,FontAwesomeModule,FormsModule],
+  imports: [AppComponent,BrowserModule, HomeComponent,FontAwesomeModule,FormsModule,HttpClientModule,],
+  providers:[AuthService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // You don't need to import CommonModule here for AppModule
   bootstrap: [] // Bootstrap your root component
 })
