@@ -40,20 +40,21 @@ export class CompteService {
     );
   }
 
-  // Méthode pour activer un compte
-  activateCompte(rib: string): Observable<string> {
-    return this.http.put<string>(`${this.apiUrl}/activer/${rib}`, null, { headers: this.getHeaders() }).pipe(
-      catchError(this.handleError)
-    );
-  }
+// Méthode pour activer un compte
+activateCompte(rib: string): Observable<any> {
+  const encodedRib = encodeURIComponent(rib); // Encoder le RIB
+  return this.http.put<any>(`${this.apiUrl}/activer/${encodedRib}`, null, { headers: this.getHeaders() }).pipe(
+    catchError(this.handleError)
+  );
+}
 
-  // Méthode pour suspendre un compte
-  suspendCompte(rib: string): Observable<string> {
-    return this.http.put<string>(`${this.apiUrl}/suspendre/${rib}`, null, { headers: this.getHeaders() }).pipe(
-      catchError(this.handleError)
-    );
-  }
-
+// Méthode pour suspendre un compte
+suspendCompte(rib: string): Observable<any> {
+  const encodedRib = encodeURIComponent(rib); // Encoder le RIB
+  return this.http.put<any>(`${this.apiUrl}/suspendre/${encodedRib}`, null, { headers: this.getHeaders() }).pipe(
+    catchError(this.handleError)
+  );
+}
   // Méthode pour récupérer un compte par son RIB
   getCompteByRib(rib: string): Observable<CompteDTO> {
     return this.http.get<CompteDTO>(`${this.apiUrl}/${rib}`, { headers: this.getHeaders() }).pipe(

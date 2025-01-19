@@ -16,3 +16,4 @@ import { TransactionListComponent } from '../transaction-list/transaction-list.c
 export class SidebarComponent {
 
 }
+
