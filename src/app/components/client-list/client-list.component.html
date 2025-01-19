@@ -1,6 +1,37 @@
+
+<!-- Dans le fichier index.html -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <div class="container mt-5">
   <h2>List of Clients</h2>
-  <table class="table table-striped">
+
+  <!-- Conteneur pour les cartes et le graphique -->
+  <div class="stats-container">
+    <!-- Carte pour le nombre total de clients -->
+    <div class="card stat-card">
+      <div class="card-body text-center">
+        <i class="fas fa-users fa-3x mb-3" style="color: #1b365c;"></i> <!-- Icône -->
+        <h5 class="card-title">Total Clients</h5>
+        <p class="card-text display-4">{{ clients.length }}</p>
+      </div>
+    </div>
+
+    <!-- Carte pour le nombre de types de clients -->
+    <div class="card stat-card">
+      <div class="card-body text-center">
+        <i class="fas fa-tags fa-3x mb-3" style="color: #1b365c;"></i> <!-- Icône -->
+        <h5 class="card-title">Client Types</h5>
+        <p class="card-text display-4">{{ clientTypes.length }}</p>
+      </div>
+    </div>
+
+    <!-- Graphique -->
+    <div class="chart-container">
+      <canvas id="MyChart" width="300" height="300"></canvas>
+    </div>
+  </div>
+
+  <!-- Tableau des clients -->
+  <table class="table table-striped mt-4">
     <thead>
       <tr>
         <th>ID</th>
@@ -23,7 +54,9 @@
         <td>{{ client.adresse }}</td>
         <td>{{ client.natureClient }}</td>
         <td>
-          <button class="btn btn-danger btn-sm" (click)="client.id !== undefined && deleteClient(client.id)">Delete</button>
+          <button class="btn btn-danger btn-sm" (click)="client.id !== undefined && deleteClient(client.id)">
+            <i class="fas fa-trash"></i> Delete <!-- Icône dans le bouton -->
+          </button>
         </td>
       </tr>
     </tbody>

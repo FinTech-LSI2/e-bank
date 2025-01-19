@@ -14,6 +14,7 @@ import { ClientListComponent } from './components/client-list/client-list.compon
 
 import { CompteFormComponent } from './components/compte-form/compte-form.component';
 import { ClientFormComponent } from './components/client-form/client-form.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 export const routes: Routes = [
@@ -28,6 +29,15 @@ export const routes: Routes = [
   {path:'client-form',component:ClientFormComponent},
   { path: 'client-list', component: ClientListComponent },
   {path: 'compte-form', component: CompteFormComponent },
-
+  {
+    path: 'employee-dashboard', // Utilisez un chemin sans espace
+    component: DashboardComponent, // Le tableau de bord contient la barre latérale
+    children: [
+      { path: 'client-list', component: ClientListComponent }, // Chargé dans le <router-outlet>
+      { path: 'compte-form', component: CompteFormComponent },
+      { path: '', redirectTo: 'client-list', pathMatch: 'full' }, // Route par défaut
+    ],
+  },
+  { path: '', redirectTo: '/employee-dashboard', pathMatch: 'full' },
 
 ];
