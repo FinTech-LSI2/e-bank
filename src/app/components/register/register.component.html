@@ -2,10 +2,7 @@
 <div class="login-container">
   <!-- Image à gauche -->
   <div class="left-image">
-    <img
-      src="assets/img/login-image.jpg"
-
-    />
+    <img src="assets/img/login-image.jpg" alt="Login Image" />
   </div>
 
   <!-- Formulaire à droite -->
@@ -17,10 +14,10 @@
         <div class="textbox">
           <input
             type="text"
-            id="name"
+            id="username"
             [(ngModel)]="user.name"
-            name="name"
-            placeholder="Nom complet"
+            name="username"
+            placeholder="Nom d'utilisateur"
             required
           />
         </div>

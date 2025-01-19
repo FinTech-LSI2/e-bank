@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule } 
 import { CompteService } from '../../services/compte.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { CompteDTO } from '../../models/compte-dto';
 
 @Component({
   selector: 'app-compte-form',
@@ -15,26 +16,56 @@ import { HttpClientModule } from '@angular/common/http';
 export class CompteFormComponent {
   compteForm: FormGroup;
 
-  
-  constructor(private fb: FormBuilder, private compteService: CompteService) {
+  constructor(
+    private fb: FormBuilder,
+    private compteService: CompteService
+  ) {
     this.compteForm = this.fb.group({
-      balance: [0, [Validators.required, Validators.min(0)]],
-      typeCompte: ['CURRANT', Validators.required],
-      status: ['ACTIVATED', Validators.required],
-      idClient: [null, [Validators.required, Validators.min(1)]], // Ajout d'idClient avec validation
-      interetRate: [0, [Validators.min(0)]], // Optionnel pour les comptes non-épargne
+      idClient: ['', [Validators.required, Validators.min(1)]], // Add client ID field
+      balance: ['', [Validators.required, Validators.min(0)]],
+      typeCompte: ['', Validators.required],
+      decouvert: [0], // Optional, only for current accounts
+      interetRate: [0], // Optional, only for savings accounts
     });
   }
-  
 
-  onSubmit() {
-    if (this.compteForm.valid) {
-      this.compteService.createCompte(this.compteForm.value).subscribe({
-        next: (res) => alert(res),
-        error: (err) => console.error(err),
-      });
-    } else {
-      alert("Form is not valid");
+  // Handle account type change
+  onAccountTypeChange(): void {
+    const typeCompte = this.compteForm.get('typeCompte')?.value;
+
+    if (typeCompte === 'CURRANT') {
+      // Add validators for decouvert (overdraft limit)
+      this.compteForm.get('decouvert')?.setValidators([Validators.required, Validators.min(0)]);
+      this.compteForm.get('interetRate')?.clearValidators();
+    } else if (typeCompte === 'SAVING') {
+      // Add validators for interetRate (interest rate)
+      this.compteForm.get('interetRate')?.setValidators([Validators.required, Validators.min(0)]);
+      this.compteForm.get('decouvert')?.clearValidators();
     }
+
+    // Update the form control validity
+    this.compteForm.get('decouvert')?.updateValueAndValidity();
+    this.compteForm.get('interetRate')?.updateValueAndValidity();
+  }
+
+  onSubmit(): void {
+    if (this.compteForm.invalid) {
+      alert('Please fill out the form correctly.');
+      return;
+    }
+
+    const compteDto: CompteDTO = this.compteForm.value;
+    console.log('Sending payload:', compteDto); // Log the payload
+
+    this.compteService.createCompte(compteDto).subscribe({
+      next: (response) => {
+        alert('Compte created successfully!');
+        this.compteForm.reset();
+      },
+      error: (error) => {
+        console.error('Error creating compte:', error);
+        alert('Failed to create compte. Please try again.');
+      }
+    });
   }
 }

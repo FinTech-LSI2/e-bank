@@ -15,23 +15,38 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrl: './client-list.component.css'
 })
 export class ClientListComponent implements OnInit {
-  clients: Client[] = [];
+  clients: Client[] = []; // Array to store the list of clients
 
   constructor(private clientService: ClientService) {}
 
   ngOnInit(): void {
-    this.loadClients();
+    this.fetchClients(); // Fetch the list of clients when the component initializes
   }
 
-  loadClients(): void {
-    this.clientService.getClients().subscribe((data) => {
-      this.clients = data;
+  fetchClients(): void {
+    this.clientService.getAllClients().subscribe({
+      next: (clients) => {
+        this.clients = clients; // Store the fetched clients in the array
+      },
+      error: (error) => {
+        console.error('Error fetching clients:', error);
+        alert('Failed to fetch clients. Please try again.');
+      }
     });
   }
 
   deleteClient(id: number): void {
-    this.clientService.deleteClient(id).subscribe(() => {
-      this.loadClients();
-    });
+    if (confirm('Are you sure you want to delete this client?')) {
+      this.clientService.deleteClient(id).subscribe({
+        next: () => {
+          alert('Client deleted successfully!');
+          this.fetchClients(); // Refresh the list after deletion
+        },
+        error: (error) => {
+          console.error('Error deleting client:', error);
+          alert('Failed to delete client. Please try again.');
+        }
+      });
+    }
   }
 }

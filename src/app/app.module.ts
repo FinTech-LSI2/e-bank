@@ -7,7 +7,8 @@ import { CreditRequestComponent } from './components/credit-request/credit-reque
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth-interceptor.service';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     // Declare your HomeComponent here
   ],
   imports: [AppComponent,BrowserModule, HomeComponent,FontAwesomeModule,FormsModule,HttpClientModule,],
-  providers:[AuthService],
+  providers:[AuthService,{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA], // You don't need to import CommonModule here for AppModule
   bootstrap: [] // Bootstrap your root component
 })

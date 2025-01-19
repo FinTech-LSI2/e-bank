@@ -11,20 +11,25 @@ import { FooterComponent } from '../footer/footer.component';
   selector: 'app-login',
   standalone:true,
   imports:[HttpClientModule,FormsModule,CommonModule,NavbarComponent,RouterLink,FooterComponent],
-  providers:[AuthService],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  providers: [AuthService],
 })
 export class LoginComponent {
   credentials = {
-    username: '',
+    username: '', // Change 'name' to 'username'
     password: '',
   };
 
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit(): void {
-    this.authService.login(this.credentials).subscribe(
+    const credentials = {
+      username: this.credentials.username, // Change 'name' to 'username'
+      password: this.credentials.password,
+    };
+
+    this.authService.login(credentials).subscribe(
       (response: any) => {
         console.log('Connexion réussie', response);
         this.authService.setToken(response.token); // Stocker le token

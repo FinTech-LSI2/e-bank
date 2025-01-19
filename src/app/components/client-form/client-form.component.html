@@ -1,14 +1,86 @@
-<form (ngSubmit)="saveClient()" class="creative-form">
-    <label>Last Name: <input type="text" [(ngModel)]="client.lastname" name="lastname" required /></label>
-    <label>First Name: <input type="text" [(ngModel)]="client.firstname" name="firstname" required /></label>
-    <label>CIN: <input type="text" [(ngModel)]="client.cin" name="cin" required /></label>
-    <label>Email: <input type="email" [(ngModel)]="client.email" name="email" required /></label>
-    <label>Phone: <input type="text" [(ngModel)]="client.numeroTelephone" name="numeroTelephone" required /></label>
-    <label>Date of Birth: <input type="date" [(ngModel)]="client.dateNaissance" name="dateNaissance" required /></label>
-    <label>Address: <input type="text" [(ngModel)]="client.adresse" name="adresse" required /></label>
-    <label>Nature de Client: <input type="text" [(ngModel)]="client.natureClient" name="natureClient" required /></label>
-    <label>Registration Date: <input type="date" [(ngModel)]="client.inscriptionDate" name="inscriptionDate" required /></label>
-    <label>Password: <input type="password" [(ngModel)]="client.password" name="password" required /></label>
-    <button type="submit">Save</button>
+<div class="container mt-5">
+  <h2>Create New Client</h2>
+  <form [formGroup]="clientForm" (ngSubmit)="saveClient()">
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" class="form-control" id="lastname" formControlName="lastname">
+      <div *ngIf="clientForm.get('lastname')?.invalid && clientForm.get('lastname')?.touched" class="text-danger">
+        Last Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input type="text" class="form-control" id="firstname" formControlName="firstname">
+      <div *ngIf="clientForm.get('firstname')?.invalid && clientForm.get('firstname')?.touched" class="text-danger">
+        First Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cin">CIN</label>
+      <input type="text" class="form-control" id="cin" formControlName="cin">
+      <div *ngIf="clientForm.get('cin')?.invalid && clientForm.get('cin')?.touched" class="text-danger">
+        CIN must be 8 digits.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" formControlName="email">
+      <div *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched" class="text-danger">
+        Please enter a valid email.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="numeroTelephone">Phone Number</label>
+      <input type="text" class="form-control" id="numeroTelephone" formControlName="numeroTelephone">
+      <div *ngIf="clientForm.get('numeroTelephone')?.invalid && clientForm.get('numeroTelephone')?.touched" class="text-danger">
+        Phone Number must be 8 digits.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dateNaissance">Date of Birth</label>
+      <input type="date" class="form-control" id="dateNaissance" formControlName="dateNaissance">
+      <div *ngIf="clientForm.get('dateNaissance')?.invalid && clientForm.get('dateNaissance')?.touched" class="text-danger">
+        Date of Birth is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="adresse">Address</label>
+      <input type="text" class="form-control" id="adresse" formControlName="adresse">
+      <div *ngIf="clientForm.get('adresse')?.invalid && clientForm.get('adresse')?.touched" class="text-danger">
+        Address is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="natureClient">Client Type</label>
+      <input type="text" class="form-control" id="natureClient" formControlName="natureClient">
+      <div *ngIf="clientForm.get('natureClient')?.invalid && clientForm.get('natureClient')?.touched" class="text-danger">
+        Client Type is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inscriptionDate">Registration Date</label>
+      <input type="date" class="form-control" id="inscriptionDate" formControlName="inscriptionDate">
+      <div *ngIf="clientForm.get('inscriptionDate')?.invalid && clientForm.get('inscriptionDate')?.touched" class="text-danger">
+        Registration Date is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password">
+      <div *ngIf="clientForm.get('password')?.invalid && clientForm.get('password')?.touched" class="text-danger">
+        Password must be at least 6 characters.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="clientForm.invalid">Create Client</button>
   </form>
-  
+</div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +18,10 @@ export class AuthService {
   }
   // Connexion d'un utilisateur
   login(credentials: { username: string; password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/token`, credentials, { responseType: 'text' }).pipe(
-      map(response => ({ token: response })) // Convertir la réponse en objet JSON
+    return this.http.post(`${this.apiUrl}/token`, credentials).pipe(
+      tap((response: any) => {
+        this.setToken(response.token); // Save the token
+      })
     );
   }
 
