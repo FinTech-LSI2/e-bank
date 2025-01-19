@@ -1,0 +1,12 @@
+<div>
+    <h2>Effectuer un Retrait</h2>
+    <form (ngSubmit)="onSubmit()">
+      <label for="rib">RIB:</label>
+      <input id="rib" [(ngModel)]="retrait.rib" name="rib" required />
+  
+      <label for="amount">Montant:</label>
+      <input id="amount" [(ngModel)]="retrait.amount" name="amount" type="number" required />
+  
+      <button type="submit">Valider</button>
+    </form>
+  </div>

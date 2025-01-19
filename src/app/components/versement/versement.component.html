@@ -1,0 +1,12 @@
+<div>
+    <h2>Effectuer un Versement</h2>
+    <form (ngSubmit)="onSubmit()">
+      <label for="rib">RIB:</label>
+      <input id="rib" [(ngModel)]="versement.rib" name="rib" required />
+  
+      <label for="amount">Montant:</label>
+      <input id="amount" [(ngModel)]="versement.amount" name="amount" type="number" required />
+  
+      <button type="submit">Valider</button>
+    </form>
+</div>

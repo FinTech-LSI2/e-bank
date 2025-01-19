@@ -1,0 +1,61 @@
+/* Style pour le conteneur principal */
+.transaction-container {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Style pour le titre */
+.transaction-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Style pour l'input */
+.transaction-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Style pour le bouton */
+.transaction-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.transaction-button:hover {
+    background-color: #0056b3;
+}
+
+/* Style pour la liste des transactions */
+.transaction-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Style pour chaque élément de la liste */
+.transaction-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
