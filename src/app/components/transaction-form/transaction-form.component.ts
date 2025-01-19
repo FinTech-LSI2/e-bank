@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Paiement } from '../../models/paiement';
 import { Retrait } from '../../models/retrait';
 import { Versement } from '../../models/versement';
 import { Virement } from '../../models/virement';
 import { TransactionService } from '../../services/transaction.service';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-transaction-form',

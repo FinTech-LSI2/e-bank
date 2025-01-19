@@ -1,61 +1,126 @@
-/* Style pour le conteneur principal */
-.transaction-container {
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-}
-
-/* Style pour le titre */
-.transaction-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
+/* Section des stats */
+.stats-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Style des cartes */
+  .stat-card {
+    flex: 1;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
     text-align: center;
-}
-
-/* Style pour l'input */
-.transaction-input {
-    width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-/* Style pour le bouton */
-.transaction-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.transaction-button:hover {
-    background-color: #0056b3;
-}
-
-/* Style pour la liste des transactions */
-.transaction-list {
-    list-style-type: none;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .stat-card .card-body {
     padding: 0;
-}
+  }
+  
+  .stat-card .card-title {
+    font-size: 1.2rem;
+    color: #1b365c;
+    margin-bottom: 10px;
+  }
+  
+  .stat-card .card-text {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* Icônes dans les cartes */
+  .stat-card .fa-3x {
+    margin-bottom: 15px;
+  }
+  
+  /* Style du conteneur du graphique */
+  .chart-container {
+    width: 70%;
+    height: 300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .chart-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Style général du conteneur */
+  .container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  /* Titre de la liste */
+  h2 {
+    text-align: center;
+    color: #1b365c;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Style du tableau */
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .table thead {
+    background-color: #1b365c;
+    color: #ffffff;
+  }
+  
+  .table thead th {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .table tbody tr {
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #f4f4f9;
+  }
+  
+  .table tbody td {
+    padding: 12px;
+    color: #333;
+  }
 
-/* Style pour chaque élément de la liste */
-.transaction-item {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    font-size: 16px;
-}
+  .btn-primary {
+    background-color: #1b365c; /* Couleur de fond */
+    border: none; /* Supprimer la bordure */
+    padding: 5px ; /* Espacement interne */
+    border-radius: 5px; /* Coins arrondis */
+    color: #fff; /* Couleur du texte */
+    font-size: 1rem; /* Taille de la police */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: background-color 0.3s ease; /* Transition fluide */
+  }
 
-.transaction-item:last-child {
-    border-bottom: none;
-}
+  .btn-primary:hover {
+    background-color: #0f2540; /* Couleur de fond au survol */
+  }
+  

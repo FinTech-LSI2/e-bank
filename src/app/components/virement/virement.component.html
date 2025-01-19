@@ -9,6 +9,10 @@
   
       <label for="destinationRib">RIB Destinataire:</label>
       <input id="destinationRib" [(ngModel)]="virement.destinationRib" name="destinationRib" required />
+
+      <label for="amount">Description:</label>
+      <input id="amount" [(ngModel)]="virement.description" name="description" type="string" required />
+  
   
       <button type="submit">Valider</button>
     </form>

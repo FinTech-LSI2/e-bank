@@ -9,6 +9,10 @@
   
       <label for="numFacture">Numéro de Facture:</label>
       <input id="numFacture" [(ngModel)]="paiement.numFacture" name="numFacture" required />
+
+      <label for="amount">Description:</label>
+      <input id="amount" [(ngModel)]="paiement.description" name="description" type="string" required />
+  
   
       <button type="submit">Valider</button>
     </form>

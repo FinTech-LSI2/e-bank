@@ -1,0 +1,59 @@
+<head>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  </head>
+  <div class="area"></div>
+  <nav class="main-menu">
+    <!-- Logo Section -->
+    <div class="logo">
+      <img src="/assets/img/ebankk.png" alt="Logo" />
+    </div>
+  
+    <!-- Menu Items -->
+    <ul>
+      <li>
+        <a routerLink="/client-dashboard/list-transaction">
+          <i class="fa fa-list-alt fa-2x"></i> <!-- Icône pour la liste des transactions -->
+          <span class="nav-text">List Transactions</span>
+        </a>
+      </li>
+  
+      <li class="has-subnav">
+        <a routerLink="/client-dashboard/virement-form">
+          <i class="fa fa-exchange-alt fa-2x"></i> <!-- Icône pour les virements -->
+          <span class="nav-text">Virement</span>
+        </a>
+      </li>
+  
+      <li class="has-subnav">
+        <a routerLink="/client-dashboard/versement-form">
+          <i class="fa fa-money-bill-wave fa-2x"></i> <!-- Icône pour les versements -->
+          <span class="nav-text">Versement</span>
+        </a>
+      </li>
+  
+      <li class="has-subnav">
+        <a routerLink="/client-dashboard/paiement-form">
+          <i class="fa fa-credit-card fa-2x"></i> <!-- Icône pour les paiements -->
+          <span class="nav-text">Paiement</span>
+        </a>
+      </li>
+  
+      <li>
+        <a routerLink="/client-dashboard/retrait-form">
+          <i class="fa fa-hand-holding-usd fa-2x"></i> <!-- Icône pour les retraits -->
+          <span class="nav-text">Retrait</span>
+        </a>
+      </li>
+    </ul>
+  
+    <!-- Logout Section with Font Awesome Icon -->
+    <ul class="logout">
+      <li>
+        <a href="#">
+          <i class="fa fa-sign-out-alt fa-2x" style="color: white;"></i>
+          <span class="nav-text">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nav>

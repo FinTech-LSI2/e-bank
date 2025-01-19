@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TransactionService } from '../../services/transaction.service';
 import { Virement } from '../../models/virement';
+import { TransactionService } from '../../services/transaction.service';
+
 
 @Component({
   selector: 'app-virement',

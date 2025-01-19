@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Retrait } from '../../models/retrait';
-import { TransactionService } from '../../services/transaction.service';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Retrait } from '../../models/retrait';
+import { TransactionService } from '../../services/transaction.service';
 
 @Component({
   selector: 'app-retrait',

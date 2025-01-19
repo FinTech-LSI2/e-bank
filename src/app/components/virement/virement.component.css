@@ -45,7 +45,7 @@ input:focus {
 
 button {
     padding: 12px;
-    background-color: #3498db;
+    background-color: #1b365c;
     color: white;
     border: none;
     border-radius: 8px;
@@ -56,7 +56,7 @@ button {
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #1b365c;
 }
 
 button:disabled {
