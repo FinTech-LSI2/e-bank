@@ -1,0 +1,35 @@
+<div>
+    <h2>Effectuer une Transaction</h2>
+    <select [(ngModel)]="transactionType">
+      <option value="retrait">Retrait</option>
+      <option value="versement">Versement</option>
+      <option value="paiement">Paiement</option>
+      <option value="virement">Virement</option>
+    </select>
+  
+    <div *ngIf="transactionType === 'retrait'">
+      <input [(ngModel)]="retrait.rib" placeholder="RIB" />
+      <input [(ngModel)]="retrait.amount" type="number" placeholder="Montant" />
+      <button (click)="onSubmit()">Effectuer Retrait</button>
+    </div>
+  
+    <div *ngIf="transactionType === 'versement'">
+      <input [(ngModel)]="versement.rib" placeholder="RIB" />
+      <input [(ngModel)]="versement.amount" type="number" placeholder="Montant" />
+      <button (click)="onSubmit()">Effectuer Versement</button>
+    </div>
+  
+    <div *ngIf="transactionType === 'paiement'">
+      <input [(ngModel)]="paiement.rib" placeholder="RIB" />
+      <input [(ngModel)]="paiement.amount" type="number" placeholder="Montant" />
+      <input [(ngModel)]="paiement.numFacture" placeholder="Numéro de Facture" />
+      <button (click)="onSubmit()">Effectuer Paiement</button>
+    </div>
+  
+    <div *ngIf="transactionType === 'virement'">
+      <input [(ngModel)]="virement.rib" placeholder="RIB Source" />
+      <input [(ngModel)]="virement.amount" type="number" placeholder="Montant" />
+      <input [(ngModel)]="virement.destinationRib" placeholder="RIB Destinataire" />
+      <button (click)="onSubmit()">Effectuer Virement</button>
+    </div>
+  </div>

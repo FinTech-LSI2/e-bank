@@ -1,0 +1,10 @@
+<div class="transaction-container">
+    <h2 class="transaction-title">Liste des Transactions</h2>
+    <input class="transaction-input" [(ngModel)]="rib" placeholder="Entrez le RIB" />
+    <button class="transaction-button" (click)="loadTransactions()">Charger les transactions</button>
+    <ul class="transaction-list">
+      <li *ngFor="let transaction of transactions" class="transaction-item">
+        {{ transaction.transactionDate | date }} - {{ transaction.amount }} - {{ transaction.description }}
+      </li>
+    </ul>
+</div>
