@@ -8,7 +8,7 @@ import { ClientListComponent } from '../client-list/client-list.component';
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [RouterLink,HttpClientModule,CommonModule,FormsModule,ClientListComponent],
+  imports: [RouterLink,CommonModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })

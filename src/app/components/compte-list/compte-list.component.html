@@ -1,0 +1,75 @@
+<div class="container mt-5">
+  <h2>Liste des Comptes</h2>
+
+  <!-- Indicateur de chargement -->
+  <div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <p>Chargement en cours...</p>
+  </div>
+
+  <!-- Message d'erreur -->
+  <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Conteneur pour les graphiques -->
+  <div class="charts-container">
+    <!-- Pie Chart -->
+    <div class="chart-container">
+      <canvas id="PieChart" class="chart-canvas" width="300" height="300"></canvas>
+    </div>
+  
+    <!-- Bar Chart -->
+    <div class="chart-container">
+      <canvas id="BarChart" class="chart-canvas"></canvas>
+    </div>
+  </div>
+  
+
+  <!-- Tableau des comptes -->
+  <table class="table table-striped mt-4" *ngIf="!isLoading && !errorMessage">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>RIB</th>
+        <th>Client ID</th>
+        <th>Solde</th>
+        <th>Type de Compte</th>
+        <th>Découvert</th>
+        <th>Taux d'Intérêt</th>
+        <th>Statut</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let compte of comptes">
+        <td>{{ compte.id }}</td>
+        <td>{{ compte.rib }}</td>
+        <td>{{ compte.idClient }}</td>
+        <td>{{ compte.balance }}</td>
+        <td>{{ compte.typeCompte }}</td>
+        <td>{{ compte.decouvert || 'N/A' }}</td>
+        <td>{{ compte.interetRate || 'N/A' }}</td>
+        <td>{{ compte.status }}</td>
+        <td>
+          <button
+            *ngIf="compte.status === 'SUSPENDED'"
+            class="btn btn-success btn-sm"
+            (click)="activateCompte(compte.rib)"
+          >
+            Activer
+          </button>
+          <button
+            *ngIf="compte.status === 'ACTIVATED'"
+            class="btn btn-warning btn-sm"
+            (click)="suspendCompte(compte.rib)"
+          >
+            Suspendre
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
