@@ -1,50 +1,86 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { CompteDTO } from '../models/compte-dto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CompteService {
-  private apiUrl = 'http://localhost:8222/api/client/comptes'; // Replace with your backend URL
-  private token = 'eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9DTElFTlQiLCJzdWIiOiJzaWhhbSIsImlhdCI6MTczNzI0OTI1OCwiZXhwIjoxNzM4MTEzMjU4fQ.EwHZgn7OgbUgngyhx-5fdnICC6T7qvM2BBM_ulQREYA'; // Replace with your actual token
+  private apiUrl = 'http://localhost:8222/api/client/comptes'; // URL de votre API
 
   constructor(private http: HttpClient) {}
 
-  private getHeaders(): HttpHeaders {
-    return new HttpHeaders({
-      'Authorization': `Bearer ${this.token}`
-    });
-  }
-
-  // Create a new account
+  // Méthode pour créer un compte
   createCompte(compteDto: CompteDTO): Observable<CompteDTO> {
-    return this.http.post<CompteDTO>(this.apiUrl, compteDto, { headers: this.getHeaders() });
+    return this.http.post<CompteDTO>(this.apiUrl, compteDto, { headers: this.getHeaders() }).pipe(
+      catchError(this.handleError)
+    );
   }
 
-  // Get all accounts
+  // Méthode pour récupérer tous les comptes
   getAllComptes(): Observable<CompteDTO[]> {
-    return this.http.get<CompteDTO[]>(this.apiUrl, { headers: this.getHeaders() });
+    return this.http.get<CompteDTO[]>(this.apiUrl, { headers: this.getHeaders() }).pipe(
+      catchError(this.handleError)
+    );
   }
 
-  // Get savings accounts
+  // Méthode pour récupérer les comptes d'épargne
   getComptesEpargnes(): Observable<CompteDTO[]> {
-    return this.http.get<CompteDTO[]>(`${this.apiUrl}/epargne`, { headers: this.getHeaders() });
+    return this.http.get<CompteDTO[]>(`${this.apiUrl}/epargne`, { headers: this.getHeaders() }).pipe(
+      catchError(this.handleError)
+    );
   }
 
-  // Get current accounts
+  // Méthode pour récupérer les comptes courants
   getComptesCourants(): Observable<CompteDTO[]> {
-    return this.http.get<CompteDTO[]>(`${this.apiUrl}/courant`, { headers: this.getHeaders() });
+    return this.http.get<CompteDTO[]>(`${this.apiUrl}/courant`, { headers: this.getHeaders() }).pipe(
+      catchError(this.handleError)
+    );
   }
 
-  // Activate an account
+  // Méthode pour activer un compte
   activateCompte(rib: string): Observable<string> {
-    return this.http.put<string>(`${this.apiUrl}/activer/${rib}`, null, { headers: this.getHeaders() });
+    return this.http.put<string>(`${this.apiUrl}/activer/${rib}`, null, { headers: this.getHeaders() }).pipe(
+      catchError(this.handleError)
+    );
   }
 
-  // Suspend an account
+  // Méthode pour suspendre un compte
   suspendCompte(rib: string): Observable<string> {
-    return this.http.put<string>(`${this.apiUrl}/suspendre/${rib}`, null, { headers: this.getHeaders() });
+    return this.http.put<string>(`${this.apiUrl}/suspendre/${rib}`, null, { headers: this.getHeaders() }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Méthode pour récupérer un compte par son RIB
+  getCompteByRib(rib: string): Observable<CompteDTO> {
+    return this.http.get<CompteDTO>(`${this.apiUrl}/${rib}`, { headers: this.getHeaders() }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Méthode pour gérer les erreurs HTTP
+  private handleError(error: HttpErrorResponse) {
+    let errorMessage = 'Une erreur inconnue est survenue';
+    if (error.error instanceof ErrorEvent) {
+      // Erreur côté client
+      errorMessage = `Erreur : ${error.error.message}`;
+    } else {
+      // Erreur côté serveur
+      errorMessage = `Code d'erreur : ${error.status}\nMessage : ${error.message}`;
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
+  }
+
+  // Méthode pour obtenir les en-têtes HTTP
+  private getHeaders(): HttpHeaders {
+    const token = localStorage.getItem('token'); // Récupérer le token JWT du stockage local
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
   }
 }

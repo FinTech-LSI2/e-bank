@@ -23,9 +23,18 @@ export class RegisterComponent {
     role: 'CLIENT', // Par défaut, on enregistre un client
   };
 
+  errorMessage: string = ''; // Pour afficher les messages d'erreur
+
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit(): void {
+    // Vérifier si l'email existe déjà (côté frontend)
+    if (this.authService.checkEmailExists(this.user.email)) {
+      this.errorMessage = 'Cet email est déjà utilisé. Veuillez utiliser un autre email.';
+      return; // Arrêter l'exécution si l'email existe déjà
+    }
+
+    // Si l'email n'existe pas, procéder à l'inscription
     this.authService.register(this.user).subscribe(
       (response) => {
         console.log('Inscription réussie', response);
@@ -33,6 +42,7 @@ export class RegisterComponent {
       },
       (error) => {
         console.error('Erreur lors de l\'inscription', error);
+        this.errorMessage = 'Une erreur est survenue lors de l\'inscription.';
       }
     );
   }

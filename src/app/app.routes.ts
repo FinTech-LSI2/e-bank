@@ -9,9 +9,11 @@ import { LoanApplicationListComponent } from './components/loan-application-list
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 
-import { ClientFormComponent } from './components/client-form/client-form.component';
+
 import { ClientListComponent } from './components/client-list/client-list.component';
+
 import { CompteFormComponent } from './components/compte-form/compte-form.component';
+import { ClientFormComponent } from './components/client-form/client-form.component';
 
 
 export const routes: Routes = [
@@ -23,8 +25,7 @@ export const routes: Routes = [
   { path: 'List-demande', component: LoanApplicationListComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-
-  { path: 'client-form', component: ClientFormComponent },
+  {path:'client-form',component:ClientFormComponent},
   { path: 'client-list', component: ClientListComponent },
   {path: 'compte-form', component: CompteFormComponent },
 
