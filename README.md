@@ -168,9 +168,9 @@ http://<jenkins_url>:8080/multibranch-webhook-trigger/invoke?token=<token_name>
 
 ## it goes like this 
 
-## dev push the code -> triggers the webhook --> build and test the project using maven -->
-## scan the code using sonarqube --> store the artifact in nexus --> build the docker image -->
-## scan the image using trivy --> push the image to ecr --> change the image name to the argocd repo --> argocd synchronize the changes in the k8s cluster 
+#### dev push the code -> triggers the webhook --> build and test the project using maven -->
+ #### scan the code using sonarqube --> store the artifact in nexus --> build the docker image -->
+ #### scan the image using trivy --> push the image to ecr --> change the image name to the #### argocd repo --> argocd synchronize the changes in the k8s cluster
 
 
 
