@@ -5,11 +5,10 @@ metadata:
   labels:
     app: frontend
 spec:
-  type: ClusterIP
+  type: LoadBalancer  # Changed from ClusterIP to LoadBalancer
   selector:
     app: frontend
   ports:
     - protocol: TCP
-      port: 5555           # The port inside the cluster that the gateway listens on
-      targetPort: 80      # The target port on the container (same as containerPort)
-      
+      port: 5555        # The port exposed by the load balancer
+      targetPort: 80    # The target port on the container
