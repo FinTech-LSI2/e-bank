@@ -1,0 +1,60 @@
+/* Table styling */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: auto; /* Aligner la table à droite */
+    margin-right: 0; /* Optionnel: pour s'assurer qu'il n'y a pas de marge à droite */
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #1b365c;
+    color: white;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+
+  h2 {
+    text-align: center;
+    color: #1b365c;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+  }
+  
+  /* Button styling */
+  .btn {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary {
+    background-color: #084cb2;
+    border: none;
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: #1b365c;
+  }
+  
+  .btn-danger {
+    background-color: #e74c3c;
+    border: none;
+    color: white;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c0392b;
+  }

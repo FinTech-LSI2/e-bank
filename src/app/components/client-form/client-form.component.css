@@ -1,4 +1,4 @@
-/* Style général du conteneur */
+/* General container styling */
 .container {
   max-width: 2000px;
   margin: 30px auto;
@@ -8,7 +8,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Titre du formulaire */
+/* Form title */
 h2 {
   text-align: center;
   color: #1b365c;
@@ -17,14 +17,15 @@ h2 {
   font-weight: bold;
 }
 
-/* Grille pour les champs de formulaire */
+/* Form grid layout */
 form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Style des groupes de formulaire */
+/* Form group styling */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -38,11 +39,11 @@ label {
   font-size: 1rem;
 }
 
-/* Champs de formulaire */
+/* Input fields */
 input[type="text"],
 input[type="email"],
-input[type="date"],
-input[type="password"] {
+input[type="password"],
+input[type="number"] {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ddd;
@@ -52,23 +53,29 @@ input[type="password"] {
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Input focus state */
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="date"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus,
+input[type="number"]:focus {
   border-color: #6a11cb;
   box-shadow: 0 0 5px rgba(106, 17, 203, 0.3);
   outline: none;
 }
 
-/* Messages d'erreur */
+/* Input hover state */
+input:hover {
+  border-color: #6a11cb;
+}
+
+/* Error messages */
 .text-danger {
   color: #e74c3c;
   font-size: 0.9rem;
   margin-top: 0.5rem;
 }
 
-/* Bouton de soumission */
+/* Submit button */
 button[type="submit"] {
   grid-column: span 2;
   padding: 1rem;
@@ -82,27 +89,20 @@ button[type="submit"] {
   transition: background 0.3s ease, transform 0.3s ease;
 }
 
+/* Submit button hover state */
 button[type="submit"]:hover {
   background: #1b365c;
   transform: translateY(-2px);
 }
 
+/* Submit button disabled state */
 button[type="submit"]:disabled {
   background: #1b365c;
   cursor: not-allowed;
   transform: none;
 }
 
-/* Animation au survol des champs */
-input:hover {
-  border-color: #6a11cb;
-}
-
-/* Effet de transition sur le formulaire */
-form {
-  animation: fadeIn 0.5s ease-in-out;
-}
-
+/* Fade-in animation for the form */
 @keyframes fadeIn {
   from {
     opacity: 0;

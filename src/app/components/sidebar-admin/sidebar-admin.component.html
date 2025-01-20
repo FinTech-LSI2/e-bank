@@ -1,0 +1,39 @@
+<head>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<div class="area"></div>
+<nav class="main-menu">
+    <!-- Logo Section -->
+    <div class="logo">
+        <img src="/assets/img/ebankk.png" alt="Logo" />
+    </div>
+
+    <!-- Menu Items -->
+    <ul>
+        <li>
+            <a routerLink="/admin-dashboard/employee-list">
+                <i class="fa fa-users fa-2x"></i> <!-- Icône pour la liste des employés -->
+                <span class="nav-text">List Employees</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="/admin-dashboard/employees">
+                <i class="fa fa-user-plus fa-2x"></i> <!-- Icône pour ajouter un employé -->
+                <span class="nav-text">Ajouter Employee</span>
+            </a>
+        </li>
+    </ul>
+
+    <!-- Logout Section with Font Awesome Icon -->
+    <ul class="logout">
+        <li>
+            <a href="#">
+                <i class="fa fa-sign-out-alt fa-2x"></i>
+                <span class="nav-text">Logout</span>
+            </a>
+        </li>
+    </ul>
+</nav>

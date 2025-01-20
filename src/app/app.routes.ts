@@ -6,7 +6,6 @@ import { LoanApplicationComponent } from './components/loan-application/loan-app
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { LoanApplicationListComponent } from './components/loan-application-list/loan-application-list.component';
 import { RegisterComponent } from './components/register/register.component';
-import { LoginComponent } from './components/login/login.component';
 import { ClientListComponent } from './components/client-list/client-list.component';
 import { CompteFormComponent } from './components/compte-form/compte-form.component';
 import { ClientFormComponent } from './components/client-form/client-form.component';
@@ -22,18 +21,27 @@ import { VirementComponent } from './components/virement/virement.component';
 import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
 import { CurrencyConverterComponent } from './components/currency-converter/currency-converter.component';
 import { EmployeeFormComponent } from './components/employee-form/employee-form.component';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
+import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
+import { DashboardadminComponent } from './components/dashboardadmin/dashboardadmin.component';
+
 
 // Exportez la constante `routes`
 export const routes: Routes = [
+  
   { path: '', component: HomeComponent },
-  { path: 'credit-request', component: LoanApplicationComponent },
+  { path: 'credit-request', component: LoanApplicationComponent  },
   { path: 'become-client', component: BecomeclientComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'SIDE', component: SidebarComponent },
+  { path: 'List-demande', component: LoanApplicationListComponent },
+  { path: 'client-form', component: ClientFormComponent },
   { path: 'client-list', component: ClientListComponent },
-  { path: 'generate-pdf', component: PdfGeneratorComponent },
-  { path: 'currency-converter', component: CurrencyConverterComponent },
+  {path: 'compte-form', component: CompteFormComponent },
+  {path: 'currency-converter', component: CurrencyConverterComponent },
   { path: 'employees', component: EmployeeFormComponent },
+  { path: 'employee-list', component: EmployeeListComponent },
+  { path: 'update-employee/:id', component: UpdateEmployeeComponent },
+  
 
   {
     path: 'employee-dashboard', // Chemin sans espace
@@ -47,6 +55,18 @@ export const routes: Routes = [
   },
   // Rediriger vers le tableau de bord par défaut
   { path: '', redirectTo: '', pathMatch: 'full' },
+
+  {
+    path: 'admin-dashboard',
+    component: DashboardadminComponent,
+    children: [
+      { path: 'employee-list', component: EmployeeListComponent },
+      { path: 'employees', component: EmployeeFormComponent },
+  
+      { path: '', redirectTo: 'employee-list', pathMatch: 'full' },
+    ],
+  },
+  { path: '', redirectTo: '/admin-dashboard', pathMatch: 'full' },
 
   {
     path: 'client-dashboard',
