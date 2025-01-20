@@ -55,6 +55,7 @@ export const routes: Routes = [
         { path: 'client-list', component: ClientListComponent }, // Chargé dans le <router-outlet>
         { path: 'compte-form', component: CompteFormComponent },
         {path:'compte-list',component:CompteListComponent} ,// Chargé dans le <router-outlet>
+        { path: 'loan-application-list', component: LoanApplicationListComponent},
         
       ],
     },
