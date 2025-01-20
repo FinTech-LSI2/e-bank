@@ -1,0 +1,10 @@
+<div class="pdf-generator-container">
+    <h2>Générer une Attestation Bancaire</h2>
+    <form (ngSubmit)="generatePdf()">
+      <div class="form-group">
+        <label for="rib">RIB :</label>
+        <input type="text" id="rib" [(ngModel)]="rib" name="rib" required>
+      </div>
+      <button type="submit">Générer PDF</button>
+    </form>
+</div>

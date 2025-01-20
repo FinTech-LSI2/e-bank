@@ -21,10 +21,12 @@ export class NavbarComponent {
   navigateToLogin(){
     this.router.navigate(['/log-in-page']);
   }
+  navigateToConverter(){
+    this.router.navigate(['/currency-converter']);
+  }
   backToHome(){
     this.router.navigate(['/']);
 
   }
-
 
 }

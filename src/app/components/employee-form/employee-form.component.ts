@@ -1,11 +1,10 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormsModule, ReactiveFormsModule, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Employee } from '../../models/employee';
-import { EmployeeService } from '../../services/employee.service';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { CreateEmployee } from '../../models/create-employee';
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
   selector: 'app-employee-form',
