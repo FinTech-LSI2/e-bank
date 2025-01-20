@@ -1,0 +1,15 @@
+<div>
+    <h2>Effectuer un Paiement</h2>
+    <form (ngSubmit)="onSubmit()">
+      <label for="rib">RIB:</label>
+      <input id="rib" [(ngModel)]="paiement.rib" name="rib" required />
+  
+      <label for="amount">Montant:</label>
+      <input id="amount" [(ngModel)]="paiement.amount" name="amount" type="number" required />
+  
+      <label for="numFacture">Numéro de Facture:</label>
+      <input id="numFacture" [(ngModel)]="paiement.numFacture" name="numFacture" required />
+  
+      <button type="submit">Valider</button>
+    </form>
+</div>

@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <h2>Create New Compte</h2>
+  <form [formGroup]="compteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="idClient">Client ID</label>
+      <input type="number" class="form-control" id="idClient" formControlName="idClient">
+      <div *ngIf="compteForm.get('idClient')?.invalid && compteForm.get('idClient')?.touched" class="text-danger">
+        Client ID is required and must be a positive number.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="balance">Initial Balance</label>
+      <input type="number" class="form-control" id="balance" formControlName="balance">
+      <div *ngIf="compteForm.get('balance')?.invalid && compteForm.get('balance')?.touched" class="text-danger">
+        Initial Balance is required and must be a positive number.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="typeCompte">Account Type</label>
+      <select class="form-control" id="typeCompte" formControlName="typeCompte" (change)="onAccountTypeChange()">
+        <option value="">Select Account Type</option>
+        <option value="CURRANT">Current Account</option>
+        <option value="SAVING">Savings Account</option>
+      </select>
+      <div *ngIf="compteForm.get('typeCompte')?.invalid && compteForm.get('typeCompte')?.touched" class="text-danger">
+        Account Type is required.
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="compteForm.get('typeCompte')?.value === 'CURRANT'">
+      <label for="decouvert">Overdraft Limit</label>
+      <input type="number" class="form-control" id="decouvert" formControlName="decouvert">
+      <div *ngIf="compteForm.get('decouvert')?.invalid && compteForm.get('decouvert')?.touched" class="text-danger">
+        Overdraft Limit must be a positive number.
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="compteForm.get('typeCompte')?.value === 'SAVING'">
+      <label for="interetRate">Interest Rate</label>
+      <input type="number" class="form-control" id="interetRate" formControlName="interetRate">
+      <div *ngIf="compteForm.get('interetRate')?.invalid && compteForm.get('interetRate')?.touched" class="text-danger">
+        Interest Rate must be a positive number.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="compteForm.invalid">Create Compte</button>
+  </form>
+</div>

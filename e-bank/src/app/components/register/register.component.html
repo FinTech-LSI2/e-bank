@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+<div class="login-container">
+  <!-- Image à gauche -->
+  <div class="left-image">
+    <img src="assets/img/login-image.jpg" alt="Login Image" />
+  </div>
+
+  <!-- Formulaire à droite -->
+  <div class="right-form">
+    <div class="form-box">
+      <h2>S'inscrire</h2>
+      <form (ngSubmit)="onSubmit()">
+        <!-- Champ Nom -->
+        <div class="textbox">
+          <input
+            type="text"
+            id="username"
+            [(ngModel)]="user.name"
+            name="username"
+            placeholder="Nom d'utilisateur"
+            required
+          />
+        </div>
+
+        <!-- Champ Email -->
+        <div class="textbox">
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="user.email"
+            name="email"
+            placeholder="Adresse email"
+            required
+          />
+        </div>
+
+        <!-- Champ Mot de passe -->
+        <div class="textbox">
+          <input
+            type="password"
+            id="password"
+            [(ngModel)]="user.password"
+            name="password"
+            placeholder="Mot de passe"
+            required
+          />
+        </div>
+
+        <!-- Sélection du rôle -->
+        <div class="textbox">
+          <select
+            id="role"
+            [(ngModel)]="user.role"
+            name="role"
+            class="form-select"
+          >
+            <option value="CLIENT">Client</option>
+            <option value="EMPLOYEE">Employé</option>
+          </select>
+        </div>
+
+        <!-- Bouton d'inscription -->
+        <button type="submit" class="btn">S'inscrire</button>
+
+        <!-- Lien vers la page de connexion -->
+        <div class="signup">
+          <p>Déjà un compte ? <a routerLink="/login">Se connecter</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

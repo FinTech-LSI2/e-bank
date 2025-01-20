@@ -1,0 +1,19 @@
+<div>
+  <h2>Effectuer un Virement</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label for="rib">RIB Source:</label>
+    <input id="rib" [(ngModel)]="virement.rib" name="rib" required />
+
+    <label for="amount">Montant:</label>
+    <input id="amount" [(ngModel)]="virement.amount" name="amount" type="number" required />
+
+    <label for="destinationRib">RIB Destinataire:</label>
+    <input id="destinationRib" [(ngModel)]="virement.destinationRib" name="destinationRib" required />
+
+    <label for="amount">Description:</label>
+    <input id="amount" [(ngModel)]="virement.description" name="description" type="string" required />
+
+
+    <button type="submit">Valider</button>
+  </form>
+</div>

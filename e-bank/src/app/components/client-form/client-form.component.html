@@ -1,0 +1,94 @@
+
+<div class="container">
+  <h1>CREATE NEW CLIENT</h1>
+  <p class="subtitle">Please fill out all fields</p>
+
+  <form [formGroup]="clientForm" (ngSubmit)="saveClient()">
+      <div class="form-grid">
+          <!-- Première colonne -->
+          <div class="form-group">
+              <label for="lastname">Last Name:</label>
+              <input type="text" id="lastname" formControlName="lastname" required>
+              <div *ngIf="clientForm.get('lastname')?.invalid && clientForm.get('lastname')?.touched" class="text-danger">
+                  Last Name is required.
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="firstname">First Name:</label>
+              <input type="text" id="firstname" formControlName="firstname" required>
+              <div *ngIf="clientForm.get('firstname')?.invalid && clientForm.get('firstname')?.touched" class="text-danger">
+                  First Name is required.
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="cin">CIN:</label>
+              <input type="text" id="cin" formControlName="cin" required>
+              <div *ngIf="clientForm.get('cin')?.invalid && clientForm.get('cin')?.touched" class="text-danger">
+                  CIN must be 8 digits.
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" formControlName="email" required>
+              <div *ngIf="clientForm.get('email')?.invalid && clientForm.get('email')?.touched" class="text-danger">
+                  Please enter a valid email.
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="numeroTelephone">Phone Number:</label>
+              <input type="text" id="numeroTelephone" formControlName="numeroTelephone" required>
+              <div *ngIf="clientForm.get('numeroTelephone')?.invalid && clientForm.get('numeroTelephone')?.touched" class="text-danger">
+                  Phone Number must be 8 digits.
+              </div>
+          </div>
+
+          <!-- Deuxième colonne -->
+          <div class="form-group">
+              <label for="dateNaissance">Date of Birth:</label>
+              <input type="date" id="dateNaissance" formControlName="dateNaissance" required>
+              <div *ngIf="clientForm.get('dateNaissance')?.invalid && clientForm.get('dateNaissance')?.touched" class="text-danger">
+                  Date of Birth is required.
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="adresse">Address:</label>
+              <input type="text" id="adresse" formControlName="adresse" required>
+              <div *ngIf="clientForm.get('adresse')?.invalid && clientForm.get('adresse')?.touched" class="text-danger">
+                  Address is required.
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="natureClient">Client Type:</label>
+              <input type="text" id="natureClient" formControlName="natureClient" required>
+              <div *ngIf="clientForm.get('natureClient')?.invalid && clientForm.get('natureClient')?.touched" class="text-danger">
+                  Client Type is required.
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="inscriptionDate">Registration Date:</label>
+              <input type="date" id="inscriptionDate" formControlName="inscriptionDate" required>
+              <div *ngIf="clientForm.get('inscriptionDate')?.invalid && clientForm.get('inscriptionDate')?.touched" class="text-danger">
+                  Registration Date is required.
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" id="password" formControlName="password" required>
+              <div *ngIf="clientForm.get('password')?.invalid && clientForm.get('password')?.touched" class="text-danger">
+                  Password must be at least 6 characters.
+              </div>
+          </div>
+      </div>
+
+      <button type="submit" class="submit-btn" [disabled]="clientForm.invalid">CREATE CLIENT</button>
+  </form>
+</div>
+

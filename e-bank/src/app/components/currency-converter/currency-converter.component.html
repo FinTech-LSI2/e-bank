@@ -1,0 +1,69 @@
+<div class="converter-wrapper">
+    <div class="converter-container">
+      <h1>Convertisseur de devises </h1>
+      <p class="subtitle">Bienvenue dans l'outil monétaire le plus populaire au monde</p>
+  
+      <div class="converter-card">
+        <div class="converter-form">
+          <div class="input-group amount-group">
+            <label>Montant</label>
+            <div class="input-wrapper">
+              <input 
+                type="number" 
+                [(ngModel)]="conversionRequest.amount" 
+                name="amount" 
+                [value]="1.00"
+                step="0.01"
+                min="0"
+              >
+              <span class="currency-symbol">$</span>
+            </div>
+          </div>
+  
+          <div class="conversion-row">
+            <div class="input-group currency-group">
+              <label>De</label>
+              <div class="select-wrapper">
+                <div class="flag-icon" [class]="'flag-' + conversionRequest.from.toLowerCase()">
+                  <img [src]="'https://flagcdn.com/w20/' + conversionRequest.from.substring(0,2).toLowerCase() + '.png'" 
+                       [alt]="conversionRequest.from">
+                </div>
+                <select [(ngModel)]="conversionRequest.from" name="from" (change)="onCurrencyChange()">
+                  <option *ngFor="let currency of supportedCurrencies" [value]="currency">
+                    {{currency}} - {{getCurrencyName(currency)}}
+                  </option>
+                </select>
+              </div>
+            </div>
+  
+            <button class="swap-button" (click)="swapCurrencies()">
+              <i class="fas fa-exchange-alt"></i>
+            </button>
+  
+            <div class="input-group currency-group">
+              <label>vers</label>
+              <div class="select-wrapper">
+                <div class="flag-icon" [class]="'flag-' + conversionRequest.to.toLowerCase()">
+                  <img [src]="'https://flagcdn.com/w20/' + conversionRequest.to.substring(0,2).toLowerCase() + '.png'" 
+                       [alt]="conversionRequest.to">
+                </div>
+                <select [(ngModel)]="conversionRequest.to" name="to" (change)="onCurrencyChange()">
+                  <option *ngFor="let currency of supportedCurrencies" [value]="currency">
+                    {{currency}} - {{getCurrencyName(currency)}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+  
+          <div *ngIf="conversionResult" class="result-panel">
+            <p class="conversion-result">
+              {{conversionRequest.amount}} {{conversionRequest.from}} = 
+              <span class="result-value">{{conversionResult.result}} {{conversionRequest.to}}</span>
+            </p>
+            <p class="rate-info">1 {{conversionRequest.from}} = {{getExchangeRate()}} {{conversionRequest.to}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

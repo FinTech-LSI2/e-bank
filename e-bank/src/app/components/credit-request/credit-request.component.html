@@ -1,0 +1,90 @@
+
+      <!-- FORM  -->
+
+<app-simulator></app-simulator>
+
+<div class="container">
+  <h1>DEMANDE DE CRÉDIT</h1>
+  <p class="subtitle">Veuillez renseigner l'ensemble des champs</p>
+  
+  <form id="loanApplicationForm">
+      <div class="form-grid">
+          <div class="form-group">
+              <label for="name">Nom Complet</label>
+              <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+              <label for="cin">CIN</label>
+              <input type="text" id="cin" name="cin" required>
+          </div>
+
+          <div class="form-group">
+              <label for="personAge">Âge</label>
+              <input type="number" id="personAge" name="personAge" required>
+          </div>
+
+          <div class="form-group">
+              <label for="personIncome">Revenu Annuel</label>
+              <input type="number" step="0.01" id="personIncome" name="personIncome" required>
+          </div>
+
+          <div class="form-group">
+              <label for="personHomeOwnership">Type de Logement</label>
+              <select id="personHomeOwnership" name="personHomeOwnership" required>
+                  <option value="">Sélectionner...</option>
+                  <option value="RENT">Location</option>
+                  <option value="OWN">Propriétaire</option>
+                  <option value="MORTGAGE">Hypothèque</option>
+                  <option value="OTHER">Autre</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label for="personEmpLength">Années d'Expérience</label>
+              <input type="number" id="personEmpLength" name="personEmpLength" required>
+          </div>
+
+          <div class="form-group">
+              <label for="loanIntent">Objectif du Prêt</label>
+              <select id="loanIntent" name="loanIntent" required>
+                  <option value="">Sélectionner...</option>
+                  <option value="EDUCATION">Education</option>
+                  <option value="MEDICAL">Médical</option>
+                  <option value="VENTURE">Entreprise</option>
+                  <option value="PERSONAL">Personnel</option>
+                  <option value="DEBTCONSOLIDATION">Consolidation de Dette</option>
+                  <option value="HOMEIMPROVEMENT">Amélioration Maison</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label for="loanAmnt">Montant du Prêt</label>
+              <input type="number" step="0.01" id="loanAmnt" name="loanAmnt" required>
+          </div>
+
+          <div class="form-group">
+              <label for="loanPercentIncome">Pourcentage du Revenu</label>
+              <input type="number" step="0.01" id="loanPercentIncome" name="loanPercentIncome" required>
+          </div>
+
+          <div class="form-group">
+              <label for="cbPersonDefaultOnFile">Défaut de Paiement Antérieur</label>
+              <select id="cbPersonDefaultOnFile" name="cbPersonDefaultOnFile" required>
+                  <option value="">Sélectionner...</option>
+                  <option value="Y">Oui</option>
+                  <option value="N">Non</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label for="cbPersonCredHistLength">Durée Historique Crédit (années)</label>
+              <input type="number" id="cbPersonCredHistLength" name="cbPersonCredHistLength" required>
+          </div>
+      </div>
+
+      <button type="submit" class="submit-btn">SOUMETTRE LA DEMANDE</button>
+  </form>
+</div> 
+<app-credit-question></app-credit-question>
+<app-footer></app-footer>

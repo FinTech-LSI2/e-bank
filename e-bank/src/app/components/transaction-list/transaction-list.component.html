@@ -1,0 +1,61 @@
+<div class="container mt-5">
+  <h2>Liste des Transactions</h2>
+
+  <!-- Formulaire pour filtrer par RIB -->
+  <div class="filter-container">
+    <input
+      class="form-control"
+      [(ngModel)]="rib"
+      placeholder="Entrez le RIB"
+    />
+    <button class="btn btn-primary" (click)="loadTransactions()">
+      Charger les transactions
+    </button>
+  </div>
+
+  <!-- Conteneur pour les cartes et le graphique -->
+  <div class="stats-container">
+    <!-- Carte pour le nombre total de transactions -->
+    <div class="card stat-card">
+      <div class="card-body text-center">
+        <i class="fas fa-exchange-alt fa-3x mb-3" style="color: #1b365c;"></i>
+        <h5 class="card-title">Total Transactions</h5>
+        <p class="card-text display-4">{{ transactions.length }}</p>
+      </div>
+    </div>
+
+    <!-- Carte pour le montant total des transactions -->
+    <div class="card stat-card">
+      <div class="card-body text-center">
+        <i class="fas fa-coins fa-3x mb-3" style="color: #1b365c;"></i>
+        <h5 class="card-title">Montant Total</h5>
+        <p class="card-text display-4">
+          {{ totalAmount | currency }} <!-- Utiliser la propriété calculée -->
+        </p>
+      </div>
+    </div>
+
+    <!-- Graphique -->
+    <div class="chart-container">
+      <canvas id="TransactionChart" width="400" height="200"></canvas>
+    </div>
+  </div>
+
+  <!-- Tableau des transactions -->
+  <table class="table table-striped mt-4">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Montant</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of transactions">
+        <td>{{ transaction.transactionDate | date }}</td>
+        <td>{{ transaction.amount | currency }}</td>
+        <td>{{ transaction.description }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,86 @@
+<app-simulator></app-simulator>
+
+<div class="container">
+  <h1>Loan Application Form</h1>
+  <p class="subtitle">Please fill out all fields</p>
+
+  <form (ngSubmit)="submitForm()">
+      <div class="form-grid">
+          <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" [(ngModel)]="loanApplication.name" name="name" required>
+          </div>
+
+          <div class="form-group">
+              <label for="cin">CIN:</label>
+              <input input type="text" id="cin" [(ngModel)]="loanApplication.cin" name="cin" required >
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input input type="text" id="email" [(ngModel)]="loanApplication.email" name="email" required >
+        </div>
+
+          <div class="form-group">
+              <label for="personAge">Age:</label>
+              <input type="number" id="personAge" [(ngModel)]="loanApplication.personAge" name="personAge" required>
+          </div>
+
+          <div class="form-group">
+              <label for="personIncome">Income:</label>
+              <input type="number" id="personIncome" [(ngModel)]="loanApplication.personIncome" name="personIncome" required >
+          </div>
+
+          <div class="form-group">
+              <label for="personHomeOwnership">Home Ownership:</label>
+              <select id="personHomeOwnership" [(ngModel)]="loanApplication.personHomeOwnership" name="personHomeOwnership">
+                  <option value="RENT">Rent</option>
+                  <option value="OWN">Own</option>
+                  <option value="MORTGAGE">Mortgage</option>
+                  <option value="OTHER">Other</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label for="personEmpLength">Employment Length (years):</label>
+              <input type="number" id="personEmpLength" [(ngModel)]="loanApplication.personEmpLength" name="personEmpLength" required>
+          </div>
+
+          <div class="form-group">
+              <label for="loanIntent">Loan Intent:</label>
+              <select id="loanIntent" [(ngModel)]="loanApplication.loanIntent" name="loanIntent">
+                  <option value="DEBTCONSOLIDATION">Debt Consolidation</option>
+                  <option value="EDUCATION">Education</option>
+                  <option value="HOMEIMPROVEMENT">Home Improvement</option>
+                  <option value="MEDICAL">Medical</option>
+                  <option value="PERSONAL">Personal</option>
+                  <option value="VENTURE">Venture</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label for="loanAmnt">Loan Amount:</label>
+              <input type="number" id="loanAmnt" [(ngModel)]="loanApplication.loanAmnt" name="loanAmnt" required >
+          </div>
+
+          
+
+          <div class="form-group">
+              <label for="cbPersonDefaultOnFile">Default on File:</label>
+              <select id="cbPersonDefaultOnFile" [(ngModel)]="loanApplication.cbPersonDefaultOnFile" name="cbPersonDefaultOnFile" required>
+                  <option value="Y">Yes</option>
+                  <option value="N">No</option>
+              </select>
+          </div>
+
+          <div class="form-group">
+              <label for="cbPersonCredHistLength">Credit History Length (years):</label>
+              <input type="number" id="cbPersonCredHistLength" [(ngModel)]="loanApplication.cbPersonCredHistLength"  name="cbPersonCredHistLength" required>
+          </div>
+      </div>
+
+    <button type="submit" class="submit-btn">SOUMETTRE LA DEMANDE</button>
+  </form>
+</div>
+
+<app-credit-question></app-credit-question>
+<app-footer></app-footer>
