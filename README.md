@@ -1,5 +1,5 @@
 
-# Setting up the cluster 
+# Setting up the cluster && configuring the CD 
 
 
 ###  step  1 : dockerize the project
@@ -142,6 +142,35 @@ kubectl argo rollouts dashboard
 ```bash
 git clone https://github.com/FinTech-LSI2/ARGOCD_EBANK.git
 ```
+
+# Continious Integrtion : 
+### first of all create a github repo compatible with jenkins multibaranch pipeline 
+### each service is a branch and it should contain a jenkins file like this :
+![it would look sommething like this](githubrepo.jpg)
+
+
+### now creating a webhook (go the repo setting webhooks ) :
+
+```bash
+http://<jenkins_url>:8080/multibranch-webhook-trigger/invoke?token=<token_name>   
+```
+
+### i got the token when i created the multibranch pipline in jenkins 
+
+###  the jobs will be created automaticly afterwards 
+
+![it would look sommething like this](jenkins.jpg)
+
+###  pipeline overview
+
+
+![it would look sommething like this](pipeline.jpg)
+
+## it goes like this 
+
+## dev push the code -> triggers the webhook --> build and test the project using maven -->
+## scan the code using sonarqube --> store the artifact in nexus --> build the docker image -->
+## scan the image using trivy --> push the image to ecr --> change the image name to the argocd repo --> argocd synchronize the changes in the k8s cluster 
 
 
 
