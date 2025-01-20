@@ -114,5 +114,24 @@ def predict():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/api/model-metrics", methods=["GET"])
+def get_model_metrics():
+    try:
+        # Metrics from your Jupyter Notebook
+        metrics = {
+            "precision_0": 0.93,
+            "recall_0": 0.98,
+            "f1_score_0": 0.95,
+            "precision_1": 0.93,
+            "recall_1": 0.72,
+            "f1_score_1": 0.81,
+            "accuracy": 0.93,
+            "cross_validation_scores": [0.87680982, 0.9402454, 0.97190184, 0.97398454, 0.97128482],
+            "average_cross_validation_score": 0.9468452826836369
+        }
+        return jsonify(metrics)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
